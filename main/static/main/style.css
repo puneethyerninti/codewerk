@@ -1,0 +1,1860 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: black;
+  color: #e7e7e7;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Background visuals */
+.image-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.layer-blur {
+  height: 0;
+  width: 30rem;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  box-shadow: 0 0 700px 15px white;
+  rotate: -30deg;
+  z-index: -1;
+}
+
+/* Main layout container */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  z-index: 999;
+}
+
+nav a:hover {
+  color: #a7a7a7;
+}
+
+.btn-signing {
+  background-color: #a7a7a7;
+  color: black;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.btn-signing:hover {
+  background-color: white;
+}
+
+.logo {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #e0d4f7;
+  text-shadow:
+    0 0 4px rgba(160, 32, 240, 0.5),
+    0 0 8px rgba(160, 32, 240, 0.4),
+    0 0 16px rgba(127, 66, 167, 0.3);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+
+/* Main content */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 6rem);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Content Section */
+.content {
+  max-width: 42rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.tag-box {
+  position: relative;
+  width: 18rem;
+  height: 2.5rem;
+  border-radius: 50px;
+  background: linear-gradient(to right, #656565, #7f42a7, #6600c5,
+    #5300a0, #757575, #656565);
+  background-size: 200%;
+  animation: animationGradient 2.5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+}
+
+@keyframes animationGradient {
+  to {
+    background-position: 200%;
+  }
+}
+
+.tag-box .tag {
+  position: absolute;
+  inset: 3px;
+  background-color: black;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tag-box .tag:hover {
+  color: #5300a0;
+}
+
+.content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 2rem 0 1rem;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(128, 128, 128, 0.4);
+}
+
+.description {
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  max-width: 35rem;
+  color: gray;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-get-started {
+  text-decoration: none;
+  border: 1px solid #2a2a2a;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: background-color 0.2s ease;
+}
+
+.btn-get-started:hover {
+  background-color: #1a1a1a;
+}
+
+.btn-signing-main {
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+  padding: 0.6rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: background-color 0.2s ease;
+}
+
+.btn-signing-main:hover {
+  background-color: gray;
+}
+
+/* Robot Section */
+.robot-section {
+  position: relative;
+  margin: 4rem auto;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.robot-iframe,
+.robot-3d {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  max-width: 100%;
+}
+
+.robot-label.frontend {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+  border: 2px solid #00bfff;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.robot-label.backend {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a020f0;
+  text-shadow: 0 0 10px #a020f0, 0 0 20px #a020f0;
+  border: 2px solid #a020f0;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .btn-signing {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tag-box {
+    width: 12rem;
+    height: 2.2rem;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .btn-get-started,
+  .btn-signing-main {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .robot-iframe,
+  .robot-3d {
+    height: 60vh;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 4px rgba(160, 32, 240, 0.5),
+      0 0 8px rgba(160, 32, 240, 0.4),
+      0 0 16px rgba(127, 66, 167, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 1px rgba(160, 32, 240, 0.3),
+      0 0 6px rgba(127, 66, 167, 0.2),
+      0 0 12px rgba(127, 66, 167, 0.2);
+  }
+}
+
+.robot-button {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 30px;
+  border: 2px solid;
+  display: inline-block;
+  transition: 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+/* 💙 Frontend - blue glow */
+.robot-button.frontend {
+  color: #00bfff;
+  border-color: #00bfff;
+}
+
+.robot-button.frontend:hover {
+  background-color: #00bfff;
+  color: black;
+  box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff;
+}
+
+/* 💜 Backend - purple glow */
+.robot-button.backend {
+  color: #a020f0;
+  border-color: #a020f0;
+}
+
+.robot-button.backend:hover {
+  background-color: #a020f0;
+  color: white;
+  box-shadow: 0 0 15px #a020f0, 0 0 30px #a020f0;
+}
+
+.connect-section {
+  margin-top: 5rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.connect-heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px #666;
+}
+
+/* Social Buttons */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-btn {
+  text-decoration: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  background-color: black;
+  box-shadow: 0 0 15px white;
+}
+
+/* Platform colors */
+.github { border-color: #f5f5f5; color: #f5f5f5; }
+.linkedin { border-color: #0077b5; color: #0077b5; }
+.leetcode { border-color: #ffa116; color: #ffa116; }
+.hackerrank { border-color: #2ec866; color: #2ec866; }
+
+.connect-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.connect-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid #888;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.connect-btn:hover {
+  background-color: #111;
+}
+
+.connect-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: #000;
+  border: 1px solid #444;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+.connect-menu a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.connect-menu a:hover {
+  background-color: #1a1a1a;
+}
+
+.connect-dropdown:hover .connect-menu {
+  display: block;
+}
+
+.top-links-bar {
+  background-color: #0a0a0a;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+.top-links-bar a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.top-links-bar a:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-contact a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #888;
+}
+
+.tutorials-section {
+  margin-top: 4rem;
+  padding: 2rem 1rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.tutorial-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px #a020f0;
+}
+
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tutorial-card {
+  background-color: #0f0f0f;
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid #333;
+  box-shadow: 0 0 20px rgba(160, 32, 240, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(160, 32, 240, 0.2);
+}
+
+.tutorial-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #e0d4f7;
+  text-shadow: 0 0 5px #a020f0;
+}
+
+.tutorial-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+}
+.tutorials-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.tutorial-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #e0d4f7;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(160, 32, 240, 0.5);
+}
+
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.tutorial-card {
+  background-color: #111;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(160, 32, 240, 0.1);
+  transition: 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(160, 32, 240, 0.2);
+}
+
+.tutorial-card h3 {
+  color: #e0d4f7;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 8px #a020f0;
+}
+
+.tutorial-card p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* Special styling to center the last card if it's alone on the last row */
+.tutorials-grid > .tutorial-card:last-child:nth-child(5) {
+  justify-self: center;
+}
+
+
+@media (max-width: 768px) {
+  .tutorials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorials-grid > .tutorial-card:last-child:nth-child(5) {
+    grid-column: auto;
+  }
+}
+.tutorials-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  padding: 2rem 0;
+}
+
+.tutorial-card {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(160, 32, 240, 0.2);
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tutorial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(160, 32, 240, 0.4);
+}
+
+.tutorial-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #d7b4ff;
+  text-shadow: 0 0 8px #a020f0;
+}
+
+.tutorial-card p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.tutorials-grid > .tutorial-card:last-child:nth-child(5) {
+  justify-self: center;
+  margin-top: 1rem;
+}
+.tutorials-section {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.tutorials-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f0e9ff;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px #a020f0;
+}
+
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.tutorials-grid-center {
+  display: flex;
+  justify-content: center;
+}
+
+.tutorial-card {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(160, 32, 240, 0.2);
+  transition: 0.3s ease;
+}
+
+.tutorial-card:hover {
+  box-shadow: 0 0 30px rgba(160, 32, 240, 0.5);
+  transform: translateY(-5px);
+}
+
+.tutorial-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d9b3ff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #a020f0;
+}
+
+.tutorial-card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Optional: make the cards more responsive */
+@media (max-width: 768px) {
+  .tutorials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorials-grid-center {
+    flex-direction: column;
+  }
+}
+
+/* Tutorials Section */
+.tutorials-section {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px #a020f0;
+  margin-bottom: 2.5rem;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tutorial-card {
+  background-color: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 260px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(160, 32, 240, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card h3 {
+  font-size: 1.5rem;
+  color: #d8b4ff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px #a020f0;
+}
+
+.tutorial-card p {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Hover effect */
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(160, 32, 240, 0.4);
+}
+
+/* Centering the last alone card */
+.center-alone {
+  flex: 0 1 260px;
+  margin-top: 1rem;
+}
+.learn-section {
+  margin-top: 5rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.learn-heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 5px #888;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.learn-card {
+  width: 300px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+}
+
+.learn-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.learn-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #a020f0;
+}
+
+.learn-card p {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.single-center {
+  margin-top: 1rem;
+}
+
+.learn-card {
+  width: 280px; /* Set a fixed width */
+  height: 180px; /* Set a fixed height */
+  padding: 1.5rem;
+  border-radius: 16px;
+  background-color: #0c0c0c;
+  box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-back,
+.btn-home {
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid #a020f0;
+  background-color: transparent;
+  color: #a020f0;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #a020f0;
+}
+
+.btn-back:hover,
+.btn-home:hover {
+  background-color: #a020f0;
+  color: white;
+  box-shadow: 0 0 15px #a020f0, 0 0 25px #a020f0;
+}
+
+.back-glow-btn {
+  display: inline-block;
+  margin: 1.5rem 0;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  background: transparent;
+  border: 2px solid #a020f0;
+  color: #a020f0;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.back-glow-btn:hover {
+  background-color: #a020f0;
+  color: #fff;
+  box-shadow: 0 0 10px #a020f0, 0 0 20px #a020f0;
+}
+
+.signup-glow {
+  padding: 0.6rem 1.6rem;
+  border-radius: 30px;
+  border: 2px solid #a020f0;
+  color: #fff;
+  background: linear-gradient(90deg, #a020f0 0%, #6e0dd0 100%);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px #a020f0;
+}
+
+.signup-glow:hover {
+  background: #fff;
+  color: #a020f0;
+  box-shadow: 0 0 20px #a020f0, 0 0 40px #a020f0;
+}
+
+/* Shared Glow Base */
+.glow-btn {
+  padding: 0.6rem 1.6rem;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Sign Up / Start Learning Button */
+.btn-signup-glow {
+  background: linear-gradient(90deg, #a020f0, #6e0dd0);
+  color: #fff;
+  border: 2px solid #a020f0;
+  box-shadow: 0 0 12px #a020f0;
+}
+.btn-signup-glow:hover {
+  background: #fff;
+  color: #a020f0;
+  box-shadow: 0 0 20px #a020f0, 0 0 40px #a020f0;
+}
+
+/* About Button (Outline Glow) */
+.btn-about-glow {
+  background: transparent;
+  border: 2px solid #a020f0;
+  color: #a020f0;
+  box-shadow: 0 0 8px #a020f055;
+}
+.btn-about-glow:hover {
+  background: #a020f0;
+  color: #fff;
+  box-shadow: 0 0 18px #a020f0;
+}
+
+.connect-bar {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+}
+
+.connect-bar span {
+  margin-right: 0.5rem;
+  color: #b884ff;
+}
+
+.connect-bar a {
+  color: #a873ff;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.connect-bar a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #a873ff;
+}
+
+/* 🌐 CONNECT BAR - Elegant style */
+.connect-bar {
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 10;
+}
+
+.connect-bar .connect-label {
+  color: #c7a2ff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+}
+
+.connect-bar a {
+  color: #d8b8ff;
+  margin: 0 0.6rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.connect-bar a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #a873ff;
+  transition: width 0.3s ease;
+  margin-top: 3px;
+}
+
+.connect-bar a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px #a873ff;
+}
+
+.connect-bar a:hover::after {
+  width: 100%;
+}
+
+.user-greeting {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 0.95rem;
+  color: #ffffffcc;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-logout {
+  padding: 0.4rem 1rem;
+  background: #ff3f6c;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  background: #ff194f;
+}
+
+.flash-messages {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+.message {
+  padding: 1rem 1.5rem;
+  margin: 0.5rem auto;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  animation: fadeOut 4s ease forwards;
+}
+
+.message.success {
+  background-color: #24c78e;
+  color: white;
+}
+
+.message.error {
+  background-color: #ff3f6c;
+  color: white;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+.btn-logout {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(90deg, #ff4d4d, #ff1a1a);
+    background-size: 200%;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-position 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-position: right;
+}
+
+.site-footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid #333;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.footer-about h3,
+.footer-contact h4 {
+    color: #b366ff;
+    margin-bottom: 1rem;
+}
+
+.footer-contact a {
+    color: #e7e7e7;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ Logout Button Styling */
+.user-greeting {
+    text-align: right;
+    margin: 1rem 2rem 0 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.btn-logout {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+}
+/* ✅ Footer Styling */
+.site-footer {
+    background-color: #0f0f0f;
+    color: #e7e7e7;
+    padding: 3rem 1rem;
+    border-top: 1px solid #333;
+    margin-top: 4rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-about,
+.footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-about h3,
+.footer-contact h4 {
+    color: #b366ff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-about p,
+.footer-contact p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    color: #e7e7e7;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: #b366ff;
+    text-decoration: underline;
+}
+
+/* 🌐 Connect Bar Styling */
+.connect-bar {
+  text-align: center;
+  margin-top: 20px;
+  color: #d6b4ff;
+  font-size: 16px;
+}
+
+.connect-title {
+  font-weight: bold;
+  color: #c084fc;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 18px;
+}
+
+.connect-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.connect-links li {
+  margin: 4px 0;
+}
+
+.connect-links a {
+  color: #c084fc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.connect-links a:hover {
+  color: #ffffff;
+}
+
+/* 👤 Header User Info Styling */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.greeting {
+  font-size: 14px;
+  color: #a8a8ff;
+}
+
+.btn-signing {
+  background-color: #111;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid #a855f7;
+}
+
+.btn-signing:hover {
+  background-color: #a855f7;
+  color: black;
+}
+
+/* 🌐 Connect Bar Styling */
+.connect-bar {
+  text-align: center;
+  margin-top: 20px;
+  color: #d6b4ff;
+  font-size: 16px;
+}
+
+.connect-title {
+  font-weight: bold;
+  color: #c084fc;
+  margin-bottom: 12px; /* More space below the title */
+  display: block;
+  font-size: 18px;
+}
+
+/* Remove bullets completely and center-align list */
+.connect-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.connect-links li {
+  list-style-type: none;   /* bullet removal */
+  margin: 6px 0;
+}
+
+.connect-links a {
+  color: #c084fc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.connect-links a:hover {
+  color: #ffffff;
+}
+
+/* 🌐 Connect Bar Styling */
+.connect-bar {
+  text-align: center;
+  margin-top: 20px;
+  color: #d6b4ff;
+  font-size: 16px;
+}
+
+.connect-title {
+  font-weight: bold;
+  color: #c084fc;
+  margin-bottom: 16px;  /* More space before the first link */
+  display: block;
+  font-size: 18px;
+}
+
+/* 🔧 This block removes bullet dots completely */
+.connect-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  display: inline-block;
+  text-align: left;
+}
+
+.connect-links li {
+  list-style: none !important;
+  margin: 6px 0;
+}
+
+.connect-links a {
+  color: #c084fc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.connect-links a:hover {
+  color: #ffffff;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  border: 1px solid #a855f7;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #c084fc;
+}
+
+/* 👇 Button Styling Fix */
+.btn-get-started {
+  background: transparent;
+  border: 2px solid #a855f7;
+  color: #c084fc;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.btn-get-started:hover {
+  background-color: #a855f7;
+  color: black;
+  box-shadow: 0 0 10px #a855f7;
+}
+
+/* 👇 About Section Styling */
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  border: 1px solid #a855f7;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #c084fc;
+}
+
+.about-page {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #a855f7;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.8;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  text-align: center;
+}
+
+.about-page h1 {
+  font-size: 28px;
+  color: #c084fc;
+  margin-bottom: 20px;
+}
+
+.back-btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-btn {
+  background-color: transparent;
+  border: 2px solid #a855f7;
+  color: #c084fc;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #a855f7;
+  color: black;
+  box-shadow: 0 0 12px #a855f7;
+}
+
+.html-tutorial-body {
+  background: #0b0b0b url('../main/gradient.png') no-repeat center top;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+
+.cw-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cw-subtitle {
+  color: #999;
+  font-size: 1rem;
+  margin-top: -10px;
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.tutorial-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 10px #8000ff55;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #a64dff;
+}
+
+.cw-footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.html-tutorial-body {
+  background: #0b0b0b url('../main/gradient.png') no-repeat center top;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.cw-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cw-header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.cw-subtitle {
+  color: #bbb;
+  font-size: 1rem;
+  margin-top: -10px;
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.tutorial-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 12px #8000ff55;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #a64dff;
+}
+
+.tutorial-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.tutorial-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.cw-footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Background & Base */
+.html-tutorial-body {
+  background: #0b0b0b url('../main/gradient.png') no-repeat center top;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+.cw-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cw-header h1 {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.cw-subtitle {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Tutorial Card Grid */
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tutorial-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 0 12px #8000ff55;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #a64dff;
+}
+
+.tutorial-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.tutorial-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Footer */
+.cw-footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.tutorial-link {
+  text-align: center;
+}
+
+.tutorial-link h2 a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.tutorial-link p a {
+  color: #aaa;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.tutorial-link a:hover {
+  color: #a64dff;
+}
+
+.html-tutorial-body {
+  background: #0b0b0b url('../main/gradient.png') no-repeat center top;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.cw-header {
+  text-align: center;
+}
+
+.cw-subtitle {
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.cw-footer {
+  margin-top: 80px;
+  text-align: center;
+  color: #777;
+}
+
+.codewerk-tutorial-body {
+  background: #0b0b0b url('../main/gradient.png') no-repeat center top;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.tutorial-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tutorial-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #a64dff;
+  margin-bottom: 40px;
+}
+
+.tutorial-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.tutorial-card {
+  background: #111;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 15px #a64dff30;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.tutorial-card:hover {
+  box-shadow: 0 0 25px #a64dff80;
+  transform: translateY(-5px);
+}
+
+.tutorial-card h2 {
+  color: #d67bff;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.tutorial-card h2 span {
+  color: #fff;
+  margin-right: 5px;
+}
+
+.tutorial-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+code {
+  color: #fff;
+  background: #222;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.image-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.3; /* adjust glow visibility */
+}
+
+.image-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -10;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.learn-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.learn-heading {
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #a64dff;
+  margin-bottom: 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.learn-card {
+  background: #111;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 15px #a64dff40;
+  text-decoration: none;
+  transition: 0.3s ease;
+  color: #ffffff;
+}
+
+.learn-card:hover {
+  box-shadow: 0 0 20px #a64dffaa;
+  transform: translateY(-5px);
+}
+
+.learn-card h3 {
+  font-size: 1.3rem;
+  color: #d67bff;
+  margin-bottom: 10px;
+}
+
+.learn-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+code {
+  color: #ffffff;
+  background-color: #222;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.connect-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.connect-links li a {
+  color: #c185ff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.connect-bar {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #caa0ff;
+}
+
+.connect-bar a {
+  color: #c185ff;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.connect-bar a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headings & Paragraphs – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .back-glow-btn {
+      display: inline-block;
+      margin: 2rem auto 0;
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .back-glow-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0, 0 0 20px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+      
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Headings & Paragraphs</h2>
+
+      <div class="tutorial-section">
+        <h3>HTML Headings</h3>
+        <p>
+          HTML offers six levels of headings, from <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code> (least important).
+        </p>
+
+        <p>
+          Use headings to define the structure and hierarchy of your content. Typically, each page should have one <code>&lt;h1&gt;</code>, followed by subheadings like <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, etc.
+        </p>
+
+        <div class="callout-box">
+          <strong>Example:</strong>
+<pre><code>&lt;h1&gt;Welcome to CODEWERK&lt;/h1&gt;
+&lt;h2&gt;Frontend Tutorials&lt;/h2&gt;
+&lt;h3&gt;HTML Basics&lt;/h3&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>HTML Paragraphs</h3>
+        <p>
+          Paragraphs are created using the <code>&lt;p&gt;</code> tag. Each paragraph block creates a visible space between sections of text.
+        </p>
+        <p>
+          You should not use multiple <code>&lt;br&gt;</code> tags to create spacing. Instead, wrap text in proper <code>&lt;p&gt;</code> tags.
+        </p>
+
+        <div class="callout-box">
+          <strong>Example:</strong>
+<pre><code>&lt;p&gt;HTML stands for HyperText Markup Language.&lt;/p&gt;
+&lt;p&gt;It is the standard language of the Web.&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Use headings to organize your content hierarchically.</li>
+          <li>Only one <code>&lt;h1&gt;</code> per page — for SEO and accessibility.</li>
+          <li>Don’t use headings just for making text bold. Use CSS for styling.</li>
+          <li>Group related content using paragraphs and semantic tags.</li>
+        </ul>
+      </div>
+
+      <a href="{% url 'html' %}" class="back-btn">← Back to HTML Overview</a>
+      <div class="nav-btns">
+  <a href="{% url 'html-links-images' %}" class="back-glow-btn">Next: Links & Images →</a>
+</div>
+
+
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

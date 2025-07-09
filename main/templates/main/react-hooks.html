@@ -1,0 +1,286 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Hooks – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      background-image: url("{% static 'main/images/gradient.png' %}"), linear-gradient(90deg, #000000 0%, #0a001a 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      color: #a020f0;
+      text-align: center;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+
+    .btn-signing {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      background: transparent;
+      text-decoration: none;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+    }
+
+    .tutorial-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      color: #0ff;
+      font-size: 0.95rem;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1rem 0;
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-section h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .quiz-question p {
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background-color: #111;
+      color: #ddd;
+      border: 2px solid #444;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.3rem 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1e1e1e;
+    }
+
+    .quiz-options button.correct {
+      border-color: #00c853;
+      background-color: #003d1f;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      border-color: #d50000;
+      background-color: #3d0000;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .next-btn {
+      padding: 0.7rem 1.8rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .next-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'react' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">React Hooks</h2>
+
+      <div class="tutorial-section">
+        <h3>What are Hooks?</h3>
+        <p>Hooks are functions that let you “hook into” React features like state and lifecycle methods inside functional components. The most commonly used hooks are <code>useState</code> and <code>useEffect</code>.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>useState</h3>
+        <p><code>useState</code> allows you to add state to a functional component. It returns a stateful value and a function to update it.</p>
+        <pre><code>import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        <div class="callout-box"><strong>Note:</strong> You can call <code>useState</code> multiple times to manage multiple states.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>useEffect</h3>
+        <p><code>useEffect</code> lets you run side effects in your components, such as fetching data or setting up event listeners.</p>
+        <pre><code>import { useEffect } from "react";
+
+useEffect(() => {
+  console.log("Component mounted");
+
+  return () => {
+    console.log("Component unmounted");
+  };
+}, []);</code></pre>
+        <div class="callout-box"><strong>Tip:</strong> The empty array <code>[]</code> ensures the effect runs only once when the component mounts.</div>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: Test Your Understanding</h3>
+
+        <div class="quiz-question">
+          <p>1. What does <code>useState</code> return?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">A function only</button>
+            <button onclick="checkAnswer(this, true)">An array with current state and updater function</button>
+            <button onclick="checkAnswer(this, false)">An object with state and setState</button>
+            <button onclick="checkAnswer(this, false)">Nothing</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What is the purpose of <code>useEffect</code>?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">To update CSS</button>
+            <button onclick="checkAnswer(this, true)">To perform side effects in functional components</button>
+            <button onclick="checkAnswer(this, false)">To define classes</button>
+            <button onclick="checkAnswer(this, false)">To render JSX</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'react_props' %}" class="next-btn">← Previous: Props & State</a>
+        <a href="{% url 'react_router' %}" class="next-btn">Next: React Router →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

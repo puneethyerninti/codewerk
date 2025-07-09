@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'frontend' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">CSS</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">CSS Tutorial</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn how to style your web pages beautifully using CSS — from selectors and colors to layout and responsiveness.
+        </p>
+      </div>
+    </main>
+
+    <section class="learn-section" id="css-basics" data-aos="fade-up" data-aos-delay="600">
+      <h2 class="learn-heading">Explore CSS Topics</h2>
+      <div class="cards-grid">
+        <a href="{% url 'css-intro' %}" class="learn-card">
+          <h3>1. What is CSS?</h3>
+          <p>Understand the purpose of CSS and how it styles HTML elements.</p>
+        </a>
+        <a href="{% url 'css-selectors' %}" class="learn-card">
+          <h3>2. Selectors</h3>
+          <p>Learn how to target elements using class, ID, and type selectors.</p>
+        </a>
+        <a href="{% url 'css-colors' %}" class="learn-card">
+          <h3>3. Colors & Backgrounds</h3>
+          <p>Style your website with custom colors, gradients, and images.</p>
+        </a>
+        <a href="{% url 'css-boxmodel' %}" class="learn-card">
+          <h3>4. Box Model</h3>
+          <p>Understand margins, padding, borders, and content areas.</p>
+        </a>
+        <a href="{% url 'css-flexbox' %}" class="learn-card single-center">
+          <h3>5. Flexbox</h3>
+          <p>Build responsive layouts with the flexible box model.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Variables – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-box {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .quiz-question {
+      font-weight: 600;
+      color: #f5f5f5;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .quiz-options-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .quiz-option {
+      border: 2px solid #a020f0;
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      color: #a020f0;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #a020f0;
+      color: white;
+    }
+
+    .quiz-option.correct {
+      background-color: green;
+      color: #fff;
+    }
+
+    .quiz-option.wrong {
+      background-color: red;
+      color: #fff;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .nav-buttons a {
+      padding: 0.6rem 1.6rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-delay="100">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Understanding Variables in Python</h2>
+
+      <div class="tutorial-section">
+        <h3>What are Variables?</h3>
+        <p>
+          Variables in Python are used to store data. You can assign values to a variable using the <code>=</code> operator.
+        </p>
+        <div class="callout-box">
+          <strong>Example:</strong><br>
+          <code>message = "Hello, World!"</code><br>
+          <code>count = 42</code>
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Variable Naming Rules</h3>
+        <p>
+          - Variable names must start with a letter or an underscore.<br>
+          - They can contain letters, numbers, and underscores.<br>
+          - Python is case-sensitive (<code>data</code> and <code>Data</code> are different).
+        </p>
+      </div>
+
+      <div class="quiz-box">
+        <div class="quiz-question">🧠 Quick Quiz: Which of the following is a valid variable name?</div>
+        <div class="quiz-options-container">
+          <button class="quiz-option" onclick="checkAnswer(this, false)">2cool</button>
+          <button class="quiz-option" onclick="checkAnswer(this, false)">my-variable</button>
+          <button class="quiz-option" onclick="checkAnswer(this, true)">_data_value</button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'python' %}">← Back to Python Overview</a>
+        <a href="{% url 'python-flow' %}">Next: Control Flow →</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const options = document.querySelectorAll(".quiz-option");
+      options.forEach(option => {
+        option.classList.remove("correct", "wrong");
+        option.disabled = true;
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git & GitHub – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0a0a0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    
+    .logo {
+      font-size: 2rem;
+      color: #a020f0;
+      font-weight: bold;
+    }
+
+    .btn-back {
+      padding: 0.4rem 1.2rem;
+      border: 2px solid #a020f0;
+      border-radius: 25px;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .btn-get-started, .btn-signing-main {
+      padding: 0.6rem 1.4rem;
+      margin-right: 1rem;
+      border-radius: 25px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-get-started:hover, .btn-signing-main:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .learn-section {
+      padding: 3rem 2rem;
+    }
+
+    .learn-heading {
+      text-align: center;
+      font-size: 2rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .learn-card {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #ccc;
+      border: 1px solid #292929;
+      transition: 0.3s;
+    }
+
+    .learn-card:hover {
+      border-color: #a020f0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.3);
+    }
+
+    .learn-card h3 {
+      color: #a020f0;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      margin: 1rem 0 2rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .tag-box .tag {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: #a020f0;
+      color: #fff;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 2rem 2rem 4rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient" class="image-gradient">
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <a href="{% url 'backend' %}" class="btn-back" data-aos="fade-down" data-aos-duration="1200">Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">BACKEND</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">Git & GitHub</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Master version control with Git and collaborate using GitHub – from basic commands to branching strategies and team workflows.
+        </p>
+
+        <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+          <a href="https://git-scm.com/docs" class="btn-get-started" target="_blank">Git Docs</a>
+          <a href="https://docs.github.com/en" class="btn-signing-main" target="_blank">GitHub Docs</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Git Topics Section -->
+    <section class="learn-section" id="topics" data-aos="fade-up" data-aos-delay="800">
+      <h2 class="learn-heading">Topics You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'git-basics' %}" class="learn-card">
+          <h3>Git Basics</h3>
+          <p>Initialize repos, track files, commit changes, and check history.</p>
+        </a>
+        <a href="{% url 'git-branching' %}" class="learn-card">
+          <h3>Branching</h3>
+          <p>Create and manage branches for features, fixes, and collaboration.</p>
+        </a>
+        <a href="{% url 'git-remote' %}" class="learn-card">
+          <h3>Remote Repos</h3>
+          <p>Push and pull code from GitHub. Set upstreams and manage remotes.</p>
+        </a>
+        <a href="{% url 'git-merge-rebase' %}" class="learn-card">
+          <h3>Merge & Rebase</h3>
+          <p>Resolve conflicts and keep commit history clean with merge/rebase.</p>
+        </a>
+        <a href="{% url 'git-collaboration' %}" class="learn-card">
+          <h3>GitHub Collaboration</h3>
+          <p>Use pull requests, issues, and project boards to manage teamwork.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

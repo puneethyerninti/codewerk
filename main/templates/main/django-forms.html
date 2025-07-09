@@ -1,0 +1,358 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Forms – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      background-image: url("{% static 'main/images/gradient.png' %}"), linear-gradient(90deg, #000000 0%, #0a001a 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      color: #a020f0;
+      text-align: center;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+
+    .btn-signing {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      background: transparent;
+      text-decoration: none;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      margin: -3.2rem 1rem 1rem 0;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+    }
+
+    .tutorial-container {
+      max-width: 850px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      color: #0ff;
+      font-size: 0.95rem;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1rem 0;
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-section h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background-color: #111;
+      color: #ddd;
+      border: 2px solid #444;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.3rem 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1e1e1e;
+    }
+
+    .quiz-options button.correct {
+      border-color: #00c853;
+      background-color: #003d1f;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      border-color: #d50000;
+      background-color: #3d0000;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .next-btn {
+      padding: 0.7rem 1.8rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .next-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    img[alt="gradient"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -2;
+      width: 100%;
+      height: auto;
+      opacity: 0.2;
+    }
+    header {
+  position: relative;
+}
+
+.btn-signing {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  margin: 0;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid #a020f0;
+  color: #a020f0;
+  border-radius: 30px;
+  font-weight: 600;
+  background: transparent;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-signing:hover {
+  background-color: #a020f0;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient">
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'django' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Django Forms</h2>
+
+      <div class="tutorial-section">
+        <h3>What are Django Forms?</h3>
+        <p>Django Forms help you collect user input and validate it cleanly and securely. They can be rendered with HTML or linked to Django Models directly.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Creating a Form</h3>
+        <p>You can create a custom form by inheriting from <code>forms.Form</code>:</p>
+        <pre><code>from django import forms
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Rendering in Templates</h3>
+        <p>In your HTML template, you can render the form using:</p>
+        <pre><code>&lt;form method="post"&gt;
+  {% csrf_token %}
+  {{ form.as_p }}
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <div class="callout-box"><strong>Tip:</strong> Use <code>{{ form.as_p }}</code> to auto-wrap fields with paragraphs.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Handling Submissions</h3>
+        <p>In your views, handle the submitted form like this:</p>
+        <pre><code>def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # process data
+            ...
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Using ModelForm</h3>
+        <p>You can use <code>forms.ModelForm</code> to create a form directly from a model.</p>
+        <pre><code>class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['name', 'email']</code></pre>
+      </div>
+
+      <!-- ✅ Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Forms & Authentication</h3>
+
+        <div class="quiz-question">
+          <p>1. What is the purpose of Django forms?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">To handle user input and validation</button>
+            <button onclick="checkAnswer(this, false)">To perform database migrations</button>
+            <button onclick="checkAnswer(this, false)">To create admin users</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which form is used for user registration in Django?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">UserCreationForm</button>
+            <button onclick="checkAnswer(this, false)">LoginForm</button>
+            <button onclick="checkAnswer(this, false)">UserModelForm</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. What does <code>{{ form.as_p }}</code> do in the template?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Prints form as table</button>
+            <button onclick="checkAnswer(this, true)">Renders form fields inside paragraph tags</button>
+            <button onclick="checkAnswer(this, false)">Converts form to JSON</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which built-in view handles login in Django?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">LoginHandler</button>
+            <button onclick="checkAnswer(this, true)">LoginView</button>
+            <button onclick="checkAnswer(this, false)">LoginManager</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. What does <code>{% csrf_token %}</code> do in a Django form?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Prevents Cross Site Request Forgery attacks</button>
+            <button onclick="checkAnswer(this, false)">Adds styling</button>
+            <button onclick="checkAnswer(this, false)">Disables JavaScript</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ Navigation Buttons -->
+      <div class="nav-buttons">
+        <a href="{% url 'django-models' %}" class="next-btn">← Previous: Django Models</a>
+        <a href="{% url 'restapi' %}" class="next-btn">Next: REST API →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

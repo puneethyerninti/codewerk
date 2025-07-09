@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REST API Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    .back-btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .right-align {
+      text-align: right;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="header-right" data-aos="fade-down" data-aos-delay="100">
+        <div class="connect-bar">
+          <span>Connect:</span>
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a> ·
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a> ·
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a> ·
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+        <a href="{% url 'home' %}" class="btn-signing">Home</a>
+      </div>
+    </header>
+
+    <!-- Right-aligned Back Button -->
+    <div class="right-align">
+      <a href="{% url 'backend' %}" class="back-btn">Back →</a>
+    </div>
+
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">BACKEND</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">REST APIs</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn how to create and use REST APIs for communication between frontend and backend using tools like Django REST Framework, FastAPI, and Postman.
+        </p>
+
+        <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+          <a href="#topics" class="btn-get-started">Explore Topics</a>
+          <a href="{% url 'signup' %}" class="btn-signing-main">Start Learning</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Topics Section -->
+    <section class="learn-section" id="topics" data-aos="fade-up" data-aos-delay="800">
+      <h2 class="learn-heading">What You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'restapi-intro' %}" class="learn-card">
+          <h3>What is an API?</h3>
+          <p>Understand what APIs are and how they allow communication between systems.</p>
+        </a>
+        <a href="{% url 'restapi-principles' %}" class="learn-card">
+          <h3>RESTful Principles</h3>
+          <p>Learn the six key principles of REST like statelessness and resource-based routing.</p>
+        </a>
+        <a href="{% url 'restapi-methods' %}" class="learn-card">
+          <h3>HTTP Methods</h3>
+          <p>Understand GET, POST, PUT, PATCH, and DELETE methods in API design.</p>
+        </a>
+        <a href="{% url 'restapi-postman' %}" class="learn-card">
+          <h3>Postman Testing</h3>
+          <p>Use Postman to test API endpoints with parameters, headers, and payloads.</p>
+        </a>
+        <a href="{% url 'restapi-drf' %}" class="learn-card single-center">
+          <h3>DRF/FastAPI</h3>
+          <p>Build APIs using Django REST Framework and FastAPI with proper routing and serialization.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

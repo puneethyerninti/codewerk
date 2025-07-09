@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODEWERK</title>
+
+  <meta name="description" content="Learn full stack development with CODEWERK - tutorials, projects, and expert guidance from Puneeth." />
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .connect-dropdown {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .connect-btn {
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .connect-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .connect-menu {
+      display: none;
+      position: absolute;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      min-width: 180px;
+      box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
+      z-index: 99;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+    }
+
+    .connect-menu a {
+      color: #ccc;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: 0.3s ease;
+    }
+
+    .connect-menu a:hover {
+      background-color: #222;
+      color: #a020f0;
+    }
+
+    .connect-dropdown:hover .connect-menu {
+      display: block;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .connect-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="Colorful gradient background" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <!-- Connect Dropdown Centered -->
+    <div class="connect-center" data-aos="fade-down" data-aos-duration="1000">
+      <div class="connect-dropdown">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <div class="header-right">
+        {% if user.is_authenticated %}
+          <span class="greeting">Hi, {{ user.first_name|upper }}</span>
+          <a href="{% url 'logout' %}" class="btn-signing">Logout</a>
+        {% else %}
+          <a href="{% url 'signup' %}" class="btn-signing">Sign Up</a>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-zoom-in" data-aos-delay="300" data-aos-duration="1000">
+          <div class="tag">INTRODUCING</div>
+        </div>
+
+        <h1 data-aos="fade-zoom-in" data-aos-delay="300" data-aos-duration="1000">
+          FULL STACK SOLUTIONS BY<br />CODEWERK
+        </h1>
+
+        <p class="description" data-aos="fade-zoom-in" data-aos-delay="300" data-aos-duration="2000">
+          Learn Full Stack Development from Scratch — Guided by Puneeth!<br />
+          This platform offers structured tutorials, projects, and personal insights to help you master front-end, back-end, and deployment.
+        </p>
+
+        <div class="buttons" data-aos="fade-zoom-in" data-aos-delay="300" data-aos-duration="2000">
+          <a href="{% url 'about' %}" class="btn-get-started">About &gt;</a>
+          {% if not user.is_authenticated %}
+            <a href="{% url 'signup' %}" class="btn-signing-main">Get Started &gt;</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Frontend Robot -->
+      <div class="robot-section" data-aos="fade-up" data-aos-duration="1500">
+        <iframe class="robot-iframe"
+          src="https://my.spline.design/robotfollowcursorforlandingpagemc-FzFIHq4I90AsNKBwhLu0D3V4/"
+          frameborder="0" allowfullscreen></iframe>
+        <a href="{% url 'frontend' %}" class="robot-button frontend">FRONTEND</a>
+      </div>
+
+      <!-- Backend Robot -->
+      <div class="robot-section" data-aos="fade-up" data-aos-duration="1500">
+        <spline-viewer class="robot-3d" url="https://prod.spline.design/zMCcNFJUtx3T9ckz/scene.splinecode"></spline-viewer>
+        <a href="{% url 'backend' %}" class="robot-button backend">BACKEND</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.16/build/spline-viewer.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Footer -->
+  <footer class="site-footer" data-aos="fade-up" data-aos-duration="1200">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>About CODEWERK</h3>
+        <p>
+          CODEWERK is your personal guide to mastering full stack development — built by learners, for learners.
+          Learn, build, and deploy with confidence.
+        </p>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:puneethyerninti@gmail.com">puneethyerninti@gmail.com</a></p>
+        <p>Phone: <a href="tel:+916303210224">+91 6303210224</a></p>
+        <p>Location: Visakhapatnam, India</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

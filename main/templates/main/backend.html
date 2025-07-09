@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+
+      <!-- ✅ Connect Dropdown -->
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+
+      <a href="{% url 'home' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">BACKEND</div>
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="200">Backend Tutorials</h1>
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn Python, Django, REST APIs, databases, and backend architecture to power your web apps.
+        </p>
+        <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+          <a href="#tutorials" class="btn-get-started">Explore Tutorials</a>
+          <a href="{% url 'signup' %}" class="btn-signing-main">Start Learning</a>
+        </div>
+      </div>
+    </main>
+
+    <section class="learn-section" id="tutorials" data-aos="fade-up" data-aos-delay="800">
+      <h2 class="learn-heading">What You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'python' %}" class="learn-card"><h3>Python</h3><p>Backend logic and automation.</p></a>
+        <a href="{% url 'django' %}" class="learn-card"><h3>Django</h3><p>Build robust web frameworks.</p></a>
+        <a href="{% url 'restapi' %}" class="learn-card"><h3>REST APIs</h3><p>Build and use RESTful services.</p></a>
+        <a href="{% url 'database' %}" class="learn-card"><h3>Databases</h3><p>Manage data with SQL & NoSQL.</p></a>
+        <a href="{% url 'git' %}" class="learn-card single-center"><h3>Git & GitHub</h3><p>Version control for teams.</p></a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

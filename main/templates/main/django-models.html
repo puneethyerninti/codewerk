@@ -1,0 +1,247 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Models & Admin – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p, ul {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #c0f0ff;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #a020f0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .btn-signing {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      border: 2px solid #a020f0;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      color: #a020f0;
+      background: transparent;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient" class="image-gradient">
+  <div class="layer-blur"></div>
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'django-structure' %}" class="btn-signing">Back</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Django Models & Admin</h2>
+
+      <div class="tutorial-section">
+        <h3>1. What is a Model?</h3>
+        <p>In Django, a model is a Python class that defines the structure of your database table. Each model maps to a single table in the database.</p>
+        <pre><code>from django.db import models
+
+class Blog(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()</code></pre>
+        <div class="callout-box">💡 Models allow Django to automatically generate database tables and CRUD operations.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>2. Registering Models in Admin</h3>
+        <p>To see your models in Django Admin, you must register them in <code>admin.py</code> of your app.</p>
+        <pre><code>from django.contrib import admin
+from .models import Blog
+
+admin.site.register(Blog)</code></pre>
+        <div class="callout-box">🔒 Use the admin panel to manage your models without writing SQL or frontend code.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>3. Creating a Superuser</h3>
+        <p>Use this command to create an admin account:</p>
+        <pre><code>python manage.py createsuperuser</code></pre>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Django Models & Admin</h3>
+
+        <div class="quiz-question">
+          <p>1. What does a model represent?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">A database table</button>
+            <button onclick="checkAnswer(this, false)">An HTML template</button>
+            <button onclick="checkAnswer(this, false)">A Django view</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which method saves an object to the database?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">saveObject()</button>
+            <button onclick="checkAnswer(this, true)">.save()</button>
+            <button onclick="checkAnswer(this, false)">store()</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. How do you create a superuser?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">python manage.py adduser</button>
+            <button onclick="checkAnswer(this, true)">python manage.py createsuperuser</button>
+            <button onclick="checkAnswer(this, false)">python manage.py makeadmin</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="nav-btns">
+        <a href="{% url 'django-structure' %}">← Back to Structure</a>
+        <a href="{% url 'django-views' %}">Next: Views & Templates →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Databases – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .learn-card {
+      background-color: #14141a;
+      border: 2px solid #2b2b36;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: 0.3s;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.05);
+    }
+
+    .learn-card:hover {
+      border-color: #a020f0;
+      box-shadow: 0 0 20px rgba(160, 32, 240, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .learn-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #a020f0;
+    }
+
+    .learn-card p {
+      margin: 0;
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient">
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'backend' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Databases Overview</h2>
+
+      <div class="tutorial-section">
+        <h3>Why Learn Databases?</h3>
+        <p>
+          Databases are essential in backend development. They help you store, retrieve, and manipulate data efficiently.
+        </p>
+        <p>
+          In this section, you’ll explore how to use SQL, PostgreSQL, SQLite, and Django ORM to build powerful and data-driven web applications.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Topics You'll Learn</h3>
+
+        <div class="cards-grid">
+          <a href="{% url 'database-sql' %}" class="learn-card">
+            <h3>SQL Basics</h3>
+            <p>Understand SELECT, INSERT, UPDATE, DELETE, WHERE, and JOIN queries.</p>
+          </a>
+          <a href="{% url 'database-design' %}" class="learn-card">
+            <h3>Relational Design</h3>
+            <p>Learn about tables, keys, relationships, and normalization.</p>
+          </a>
+          <a href="{% url 'database-postgresql' %}" class="learn-card">
+            <h3>PostgreSQL</h3>
+            <p>Use PostgreSQL with Django through proper connection, setup, and queries.</p>
+          </a>
+          <a href="{% url 'database-orm' %}" class="learn-card">
+            <h3>Django ORM</h3>
+            <p>Perform queries in Python using Django's Object Relational Mapper.</p>
+          </a>
+          <a href="{% url 'database-sqlite' %}" class="learn-card">
+            <h3>SQLite</h3>
+            <p>Lightweight database used for testing and small-scale apps in Django.</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'restapi-drf' %}">← Back</a>
+        <a href="{% url 'database-sql' %}">Start: SQL Basics →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

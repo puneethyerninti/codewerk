@@ -1,0 +1,246 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRF & FastAPI – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p, .tutorial-section ul {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      color: #00bfff;
+      overflow-x: auto;
+      display: block;
+      margin: 1rem 0;
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'restapi-postman' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Django REST Framework vs FastAPI</h2>
+
+      <div class="tutorial-section">
+        <h3>What is Django REST Framework (DRF)?</h3>
+        <p>
+          DRF is a powerful and flexible toolkit for building Web APIs in Django. It supports serialization, authentication, permissions, and more.
+        </p>
+        <pre>pip install djangorestframework</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>What is FastAPI?</h3>
+        <p>
+          FastAPI is a modern, fast (high-performance) web framework for building APIs with Python based on standard Python type hints.
+        </p>
+        <pre>pip install fastapi uvicorn</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Key Differences</h3>
+        <ul>
+          <li><strong>Speed:</strong> FastAPI is faster due to async support.</li>
+          <li><strong>Learning Curve:</strong> DRF is great for Django devs; FastAPI suits Python lovers.</li>
+          <li><strong>Syntax:</strong> FastAPI uses Python type hints and decorators.</li>
+          <li><strong>Community:</strong> DRF has broader adoption in enterprise Django apps.</li>
+        </ul>
+        <div class="callout-box">
+          💡 <strong>Tip:</strong> Choose DRF for existing Django projects. Use FastAPI for microservices or modern async APIs.
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Simple Example – DRF</h3>
+        <pre>
+# views.py
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['GET'])
+def hello(request):
+    return Response({"msg": "Hello from DRF!"})
+        </pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Simple Example – FastAPI</h3>
+        <pre>
+# main.py
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"msg": "Hello from FastAPI!"}
+        </pre>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: DRF vs FastAPI</h3>
+
+        <div class="quiz-question">
+          <p>1. Which framework uses Python type hints heavily?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">DRF</button>
+            <button onclick="checkAnswer(this, true)">FastAPI</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which is faster due to async capabilities?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">DRF</button>
+            <button onclick="checkAnswer(this, true)">FastAPI</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. DRF is built on top of which web framework?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Django</button>
+            <button onclick="checkAnswer(this, false)">Flask</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. What command installs FastAPI?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">pip install fastapi</button>
+            <button onclick="checkAnswer(this, false)">pip install drf</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Which is more suitable for microservices?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">DRF</button>
+            <button onclick="checkAnswer(this, true)">FastAPI</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'restapi-postman' %}">← Back</a>
+        <a href="{% url 'database' %}">Next: Databases →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

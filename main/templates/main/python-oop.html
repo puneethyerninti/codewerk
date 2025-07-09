@@ -1,0 +1,247 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP Concepts – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p, ul {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: #00bfff;
+    }
+
+    pre {
+      background-color: #111;
+      color: #00bfff;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-top: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-question p {
+      font-weight: 500;
+      color: #eee;
+      margin-bottom: 0.5rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-options button {
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .quiz-options button:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .quiz-options button.correct {
+      background-color: #00c853;
+      border-color: #00c853;
+      color: white;
+    }
+
+    .quiz-options button.wrong {
+      background-color: #d32f2f;
+      border-color: #d32f2f;
+      color: white;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+
+    .nav-buttons a {
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+        <a href="{% url 'python' %}" class="btn-signing">Home</a>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Object-Oriented Programming in Python</h2>
+
+      <div class="tutorial-section">
+        <h3>What is OOP?</h3>
+        <p>OOP stands for <strong>Object-Oriented Programming</strong>. It allows you to structure your code using classes and objects, modeling real-world behavior with attributes and methods.</p>
+        <div class="callout-box">💡 Example: A car has attributes like color and brand, and methods like drive and stop.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Defining a Class</h3>
+        <pre>
+class Car:
+  def __init__(self, brand, color):
+    self.brand = brand
+    self.color = color
+
+  def drive(self):
+    print(f"{self.color} {self.brand} is driving")
+
+my_car = Car("Tesla", "Red")
+my_car.drive()</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Core Concepts</h3>
+        <ul>
+          <li><strong>Class:</strong> Blueprint for objects</li>
+          <li><strong>Object:</strong> Instance of a class</li>
+          <li><strong>__init__():</strong> Constructor method</li>
+          <li><strong>self:</strong> Refers to the current instance</li>
+          <li><strong>Method:</strong> Function defined in a class</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>The 4 Pillars of OOP</h3>
+        <ul>
+          <li><strong>Encapsulation:</strong> Hide internal state using classes</li>
+          <li><strong>Abstraction:</strong> Only expose necessary details</li>
+          <li><strong>Inheritance:</strong> Reuse features of one class in another</li>
+          <li><strong>Polymorphism:</strong> Methods behave differently based on object</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Quiz Time 🎯</h3>
+
+        <div class="quiz-question">
+          <p>1. What is a class in Python?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">A blueprint for creating objects</button>
+            <button onclick="checkAnswer(this, false)">A function</button>
+            <button onclick="checkAnswer(this, false)">A library</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What is the purpose of <code>self</code> in class methods?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">To refer to the instance calling the method</button>
+            <button onclick="checkAnswer(this, false)">To define a global variable</button>
+            <button onclick="checkAnswer(this, false)">To call another function</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Which OOP concept allows a class to inherit features from another?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Inheritance</button>
+            <button onclick="checkAnswer(this, false)">Polymorphism</button>
+            <button onclick="checkAnswer(this, false)">Encapsulation</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'python-functions' %}">← Back: Functions</a>
+        <a href="{% url 'python' %}">🏁 Python Overview</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      const allBtns = button.parentElement.querySelectorAll('button');
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.opacity = 0.6;
+      });
+
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

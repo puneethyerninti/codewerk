@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Branching – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0a0a0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      color: #00bfff;
+      display: block;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient" class="image-gradient">
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'git' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Git Branching</h2>
+
+      <div class="tutorial-section">
+        <h3>What is a Git Branch?</h3>
+        <p>A branch in Git is a lightweight movable pointer to a commit. It's a way to work on different features or bug fixes independently from the main codebase.</p>
+        <div class="callout-box">💡 By default, Git creates a branch named <code>main</code> or <code>master</code>.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Create a Branch</h3>
+        <p>To create a new branch:</p>
+        <pre><code>git branch feature-x</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Switch to a Branch</h3>
+        <p>Use <code>checkout</code> or the newer <code>switch</code> command:</p>
+        <pre><code>git switch feature-x</code></pre>
+        <pre><code>git checkout feature-x</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>List Branches</h3>
+        <p>To view all local branches:</p>
+        <pre><code>git branch</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Merge a Branch</h3>
+        <p>To merge a branch into your current branch (usually main):</p>
+        <pre><code>git merge feature-x</code></pre>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz-section">
+        <h3>Quiz: Git Branching</h3>
+
+        <div class="quiz-question">
+          <p>1. What is the default branch name in Git?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">main or master</button>
+            <button onclick="checkAnswer(this, false)">develop</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which command creates a new branch?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">git branch new-feature</button>
+            <button onclick="checkAnswer(this, false)">git init</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. What command merges branches?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">git merge branch-name</button>
+            <button onclick="checkAnswer(this, false)">git push</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which command switches to a branch?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">git switch branch-name</button>
+            <button onclick="checkAnswer(this, false)">git pull</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. What does <code>git branch</code> do without any arguments?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Lists local branches</button>
+            <button onclick="checkAnswer(this, false)">Deletes branches</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'git-basics' %}">← Back</a>
+        <a href="{% url 'git-remote' %}">Next: Remote Repos →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

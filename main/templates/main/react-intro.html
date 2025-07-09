@@ -1,0 +1,229 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to React – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    /* (your CSS remains unchanged) */
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tutorial-section p {
+      color: #ccc;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    code {
+      background: #1a1a1a;
+      color: #00bfff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-section h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      background: #111;
+      color: #ccc;
+      border: 2px solid #444;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.4rem 0;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1e1e1e;
+    }
+
+    .quiz-options button.correct {
+      border-color: #00c853;
+      background-color: #003d1f;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      border-color: #d50000;
+      background-color: #3d0000;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .next-btn {
+      padding: 0.7rem 1.8rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .next-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'frontend' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">What is React?</h2>
+
+      <div class="tutorial-section">
+        <p>
+          React is a powerful JavaScript library developed by Facebook for building interactive user interfaces. It allows developers to build reusable UI components and efficiently update the user interface when data changes.
+        </p>
+        <p>
+          Instead of manipulating the DOM directly, React uses a virtual DOM to efficiently update the actual DOM, improving performance and code organization.
+        </p>
+
+        <div class="callout-box">
+          <strong>💡 Tip:</strong> React focuses on building <strong>components</strong>, which are self-contained blocks of UI logic.
+        </div>
+
+        <h3>Key Features of React:</h3>
+        <ul>
+          <li>Component-Based Architecture</li>
+          <li>Unidirectional Data Flow</li>
+          <li>JSX Syntax</li>
+          <li>Virtual DOM</li>
+          <li>Fast Rendering & Performance</li>
+        </ul>
+
+        <h3>Example:</h3>
+        <pre><code>function Welcome() {
+  return &lt;h1&gt;Hello, CODEWERK Learners!&lt;/h1&gt;;
+}</code></pre>
+
+        <p>This is a simple React component that returns a heading. It looks like HTML but it's actually JSX.</p>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quick Quiz</h3>
+        <div class="quiz-question">
+          <p>1. What is React primarily used for?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Building user interfaces</button>
+            <button onclick="checkAnswer(this, false)">Managing databases</button>
+            <button onclick="checkAnswer(this, false)">Handling server-side logic</button>
+            <button onclick="checkAnswer(this, false)">Creating mobile apps</button>
+          </div>
+        </div>
+        <div class="quiz-question">
+          <p>2. What is the virtual DOM?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">A lightweight copy of the real DOM used for efficient updates</button>
+            <button onclick="checkAnswer(this, false)">The real DOM in memory</button>
+            <button onclick="checkAnswer(this, false)">A server-rendered version of the page</button>
+            <button onclick="checkAnswer(this, false)">An old version of the DOM</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'frontend' %}" class="next-btn">← Back to Frontend Overview</a>
+        <a href="{% url 'react_jsx' %}" class="next-btn">Next: JSX & Components →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const buttons = button.parentElement.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

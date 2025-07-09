@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Control Flow – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background-color: #111;
+      color: #00bfff;
+      padding: 1rem;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+      font-size: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1.2rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .quiz-options button {
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .quiz-options button:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+
+    .nav-buttons a {
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <!-- ✨ Background -->
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+        <a href="{% url 'python' %}" class="btn-signing">Back</a>
+      </div>
+    </header>
+
+    <!-- 📘 Main Content -->
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Control Flow in Python</h2>
+
+      <div class="tutorial-section">
+        <h3>If-Else Statements</h3>
+        <p>Python uses <code>if</code>, <code>elif</code>, and <code>else</code> to control conditional execution.</p>
+        <pre>
+score = 85
+
+if score >= 90:
+    print("Excellent!")
+elif score >= 60:
+    print("Good job!")
+else:
+    print("Keep practicing!")</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>For Loop</h3>
+        <p>Use <code>for</code> to iterate over a range or sequence in Python:</p>
+        <pre>
+for i in range(3):
+    print("CODEWERK")</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>While Loop</h3>
+        <p>The <code>while</code> loop runs as long as the condition is true:</p>
+        <pre>
+count = 1
+while count <= 3:
+    print("Looping")
+    count += 1</pre>
+      </div>
+
+      <!-- 🧠 Quiz -->
+      <div class="tutorial-section">
+        <h3>🧠 Quick Quiz: What keyword is used to loop over a sequence?</h3>
+        <div class="quiz-options">
+          <button onclick="checkAnswer(this, true)">for</button>
+          <button onclick="checkAnswer(this, false)">loop</button>
+          <button onclick="checkAnswer(this, false)">repeat</button>
+        </div>
+      </div>
+
+      <!-- 🚀 Navigation -->
+      <div class="nav-buttons">
+        <a href="{% url 'python-variables' %}">← Back to Variables</a>
+        <a href="{% url 'python-functions' %}">Next: Functions →</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- 🔧 JS Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    function checkAnswer(btn, isCorrect) {
+      const allBtns = btn.parentElement.querySelectorAll('button');
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.opacity = 0.6;
+      });
+
+      if (isCorrect) {
+        btn.style.backgroundColor = "#00c853";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#00c853";
+        btn.innerText += " ✅";
+      } else {
+        btn.style.backgroundColor = "#d32f2f";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#d32f2f";
+        btn.innerText += " ❌";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Lists – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+      display: inline-block;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .quiz-question p {
+      font-weight: 600;
+      color: #f1f1f1;
+      margin-bottom: 0.5rem;
+    }
+
+    .quiz-question button {
+      display: block;
+      width: 100%;
+      margin: 0.3rem 0;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #1f1f1f;
+      color: #ccc;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-question button:hover {
+      background-color: #333;
+    }
+
+    .btn-signing {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.6rem;
+      font-size: 1rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      background: transparent;
+      border-radius: 30px;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+      
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">HTML Lists</h2>
+
+      <div class="tutorial-section">
+        <h3>Unordered Lists</h3>
+        <p>Unordered lists use the <code>&lt;ul&gt;</code> tag and display items with bullets by default.</p>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Ordered Lists</h3>
+        <p>Ordered lists use the <code>&lt;ol&gt;</code> tag and display items with numbers.</p>
+        <pre><code>&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Definition Lists</h3>
+        <p>Use <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code> (term), and <code>&lt;dd&gt;</code> (definition):</p>
+        <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+      </div>
+
+      <div class="tutorial-section" id="quiz">
+        <h3>🧠 HTML Lists Quiz</h3>
+        <div class="quiz">
+          <!-- All 10 questions inserted here -->
+          <div class="quiz-question"><p>1. Which tag is used for an unordered list?</p><button onclick="checkAnswer(this, true)">A. &lt;ul&gt;</button><button onclick="checkAnswer(this, false)">B. &lt;ol&gt;</button><button onclick="checkAnswer(this, false)">C. &lt;li&gt;</button><button onclick="checkAnswer(this, false)">D. &lt;dl&gt;</button></div>
+          <div class="quiz-question"><p>2. What does &lt;ol&gt; stand for?</p><button onclick="checkAnswer(this, false)">A. Object List</button><button onclick="checkAnswer(this, true)">B. Ordered List</button><button onclick="checkAnswer(this, false)">C. Official List</button><button onclick="checkAnswer(this, false)">D. Option List</button></div>
+          <div class="quiz-question"><p>3. Which tag represents list items?</p><button onclick="checkAnswer(this, false)">A. &lt;ul&gt;</button><button onclick="checkAnswer(this, false)">B. &lt;ol&gt;</button><button onclick="checkAnswer(this, true)">C. &lt;li&gt;</button><button onclick="checkAnswer(this, false)">D. &lt;list&gt;</button></div>
+          <div class="quiz-question"><p>4. Can you nest one list inside another?</p><button onclick="checkAnswer(this, true)">A. Yes</button><button onclick="checkAnswer(this, false)">B. No</button></div>
+          <div class="quiz-question"><p>5. What is the default marker for &lt;ul&gt; lists?</p><button onclick="checkAnswer(this, true)">A. Disc</button><button onclick="checkAnswer(this, false)">B. Number</button><button onclick="checkAnswer(this, false)">C. Square</button><button onclick="checkAnswer(this, false)">D. Bullet</button></div>
+          <div class="quiz-question"><p>6. How can you change the numbering type in &lt;ol&gt;?</p><button onclick="checkAnswer(this, true)">A. Using the "type" attribute</button><button onclick="checkAnswer(this, false)">B. Using the "class" attribute</button><button onclick="checkAnswer(this, false)">C. Using the "style" tag</button><button onclick="checkAnswer(this, false)">D. It’s not possible</button></div>
+          <div class="quiz-question"><p>7. What does &lt;ul type="square"&gt; do?</p><button onclick="checkAnswer(this, true)">A. Displays square bullets</button><button onclick="checkAnswer(this, false)">B. Displays numbers</button><button onclick="checkAnswer(this, false)">C. Adds border to list</button><button onclick="checkAnswer(this, false)">D. Nothing</button></div>
+          <div class="quiz-question"><p>8. Which tag begins a definition list?</p><button onclick="checkAnswer(this, true)">A. &lt;dl&gt;</button><button onclick="checkAnswer(this, false)">B. &lt;ul&gt;</button><button onclick="checkAnswer(this, false)">C. &lt;list&gt;</button><button onclick="checkAnswer(this, false)">D. &lt;dd&gt;</button></div>
+          <div class="quiz-question"><p>9. Which tag defines the term in a definition list?</p><button onclick="checkAnswer(this, false)">A. &lt;li&gt;</button><button onclick="checkAnswer(this, true)">B. &lt;dt&gt;</button><button onclick="checkAnswer(this, false)">C. &lt;ul&gt;</button><button onclick="checkAnswer(this, false)">D. &lt;list&gt;</button></div>
+          <div class="quiz-question"><p>10. Can lists be styled using CSS?</p><button onclick="checkAnswer(this, true)">A. Yes</button><button onclick="checkAnswer(this, false)">B. No</button></div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="{% url 'css' %}" class="btn-signing">Go to CSS Tutorials →</a>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll("button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = "default";
+      });
+
+      if (isCorrect) {
+        button.style.backgroundColor = "#2ec866";
+        button.style.color = "black";
+        button.innerText += " ✅";
+      } else {
+        button.style.backgroundColor = "#d11a2a";
+        button.style.color = "white";
+        button.innerText += " ❌";
+      }
+    }
+  </script>
+</body>
+</html>

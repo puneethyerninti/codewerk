@@ -1,0 +1,275 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Props & State – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.3rem;
+      color: #e0d4f7;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .tutorial-section p {
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: #1e1e1e;
+      color: #00bfff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+    }
+
+    pre {
+      background: #0e0e0e;
+      padding: 1rem;
+      border-left: 4px solid #a020f0;
+      border-radius: 10px;
+      color: #ddd;
+      overflow-x: auto;
+    }
+
+    .callout-box {
+      background: #111;
+      border-left: 4px solid #a020f0;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      color: #ccc;
+    }
+
+    .quiz-section h3 {
+      color: #e0d4f7;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .quiz-question p {
+      color: #ddd;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 0.4rem 0;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 2px solid #444;
+      background-color: #121212;
+      color: #eee;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1f1f1f;
+    }
+
+    .quiz-options button.correct {
+      background: #003d1f;
+      border-color: #00e676;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      background: #3d0000;
+      border-color: #ff1744;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .next-btn {
+      padding: 0.7rem 1.6rem;
+      border: 2px solid #a020f0;
+      border-radius: 30px;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      background: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-delay="100">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'react' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Props & State in React</h2>
+
+      <div class="tutorial-section">
+        <h3>What are Props?</h3>
+        <p>Props (short for properties) are how data is passed from one component to another in React. They are read-only and help components become reusable.</p>
+        <pre><code>function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}</code></pre>
+        <p>Here, <code>props.name</code> accesses the value passed to the component.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Passing Props</h3>
+        <p>Props are passed to components like attributes in HTML.</p>
+        <pre><code>&lt;Welcome name="Puneeth" /&gt;</code></pre>
+        <div class="callout-box"><strong>💡 Tip:</strong> Props can be strings, numbers, objects, or even functions!</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>What is State?</h3>
+        <p>State is a built-in object in React components that allows them to store dynamic data that can change over time.</p>
+        <pre><code>import &#123; useState &#125; from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: &#123;count&#125;&lt;/p&gt;
+      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Props vs State</h3>
+        <ul>
+          <li><strong>Props:</strong> Passed from parent to child. Immutable.</li>
+          <li><strong>State:</strong> Managed within the component. Mutable using <code>useState()</code>.</li>
+        </ul>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz-section">
+        <h3>Quiz: Props & State</h3>
+
+        <div class="quiz-question">
+          <p>1. What are props in React?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Inputs to a component</button>
+            <button onclick="checkAnswer(this, false)">Component’s internal memory</button>
+            <button onclick="checkAnswer(this, false)">Built-in hooks</button>
+            <button onclick="checkAnswer(this, false)">None of the above</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Props are...</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Mutable</button>
+            <button onclick="checkAnswer(this, true)">Immutable</button>
+            <button onclick="checkAnswer(this, false)">Private</button>
+            <button onclick="checkAnswer(this, false)">Optional</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. How do you update state?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Using props</button>
+            <button onclick="checkAnswer(this, false)">By assigning it directly</button>
+            <button onclick="checkAnswer(this, true)">By using setState or useState hook</button>
+            <button onclick="checkAnswer(this, false)">Using return</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Can you pass functions via props?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Yes</button>
+            <button onclick="checkAnswer(this, false)">No</button>
+            <button onclick="checkAnswer(this, false)">Only in class components</button>
+            <button onclick="checkAnswer(this, false)">Only if it returns JSX</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'react_jsx' %}" class="next-btn">← JSX & Components</a>
+        <a href="{% url 'react_hooks' %}" class="next-btn">Next: useState & useEffect →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, correct) {
+      const buttons = button.parentElement.querySelectorAll("button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(correct ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

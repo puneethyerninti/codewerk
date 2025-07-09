@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Functions – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background-color: #111;
+      color: #00bfff;
+      padding: 1rem;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+      font-size: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1.2rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .quiz-options button {
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .quiz-options button:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+
+    .nav-buttons a {
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+        <a href="{% url 'python' %}" class="btn-signing">Back</a>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Python Functions</h2>
+
+      <div class="tutorial-section">
+        <h3>What is a Function?</h3>
+        <p>A function is a block of reusable code that performs a specific task. It helps reduce repetition and makes code easier to manage.</p>
+        <pre>
+def greet():
+    print("Hello from CODEWERK!")
+greet()</pre>
+        <p>This will output:</p>
+        <pre>Hello from CODEWERK!</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Function Parameters & Arguments</h3>
+        <p>You can pass values into a function using parameters.</p>
+        <pre>
+def greet(name):
+    print("Hello, " + name)
+
+greet("Puneeth")
+greet("CODEWERK")</pre>
+        <p><strong>Output:</strong></p>
+        <pre>Hello, Puneeth
+Hello, CODEWERK</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Return Statement</h3>
+        <p>Functions can return values using the <code>return</code> keyword:</p>
+        <pre>
+def add(x, y):
+    return x + y
+
+result = add(3, 5)
+print(result)</pre>
+        <p><strong>Output:</strong> <code>8</code></p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Default Arguments</h3>
+        <p>If no value is provided, default arguments can be used:</p>
+        <pre>
+def greet(name="Guest"):
+    print("Hello, " + name)
+
+greet()
+greet("Puneeth")</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Keyword Arguments</h3>
+        <p>You can pass arguments by name:</p>
+        <pre>
+def user_profile(name, age):
+    print(f"{name} is {age} years old.")
+
+user_profile(age=21, name="Puneeth")</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>🧠 Quick Quiz: What does a function return by default if no return is used?</h3>
+        <div class="quiz-options">
+          <button onclick="checkAnswer(this, true)">None</button>
+          <button onclick="checkAnswer(this, false)">0</button>
+          <button onclick="checkAnswer(this, false)">Error</button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'python-flow' %}">← Back to Control Flow</a>
+        <a href="{% url 'python-oop' %}">Next: OOP →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    function checkAnswer(btn, isCorrect) {
+      const allBtns = btn.parentElement.querySelectorAll('button');
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.opacity = 0.6;
+      });
+
+      if (isCorrect) {
+        btn.style.backgroundColor = "#00c853";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#00c853";
+        btn.innerText += " ✅";
+      } else {
+        btn.style.backgroundColor = "#d32f2f";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#d32f2f";
+        btn.innerText += " ❌";
+      }
+    }
+  </script>
+</body>
+</html>

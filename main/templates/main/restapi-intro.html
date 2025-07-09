@@ -1,0 +1,243 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is an API? – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p, ul {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+    .btn-signing {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      background: transparent;
+      text-decoration: none;
+    }
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+    }
+    .logo {
+      font-size: 2.2rem;
+      color: #a020f0;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'restapi' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">What is an API?</h2>
+
+      <div class="tutorial-section">
+        <h3>Definition</h3>
+        <p>
+          An <strong>API</strong> (Application Programming Interface) is a set of rules that allow different software applications to communicate. It defines how a client can interact with a system or service.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Real-Life Analogy</h3>
+        <div class="callout-box">
+          💡 Imagine you're at a restaurant. The menu is the API — it tells you what you can order. You (the client) request an item, and the kitchen (the server) processes it and sends it back to you.
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Why APIs Matter</h3>
+        <ul>
+          <li>Connect frontend with backend</li>
+          <li>Enable mobile and web apps to work with servers</li>
+          <li>Allow third-party integrations (e.g., payment gateways)</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Types of APIs</h3>
+        <ul>
+          <li><strong>REST</strong> – Simple, uses HTTP methods</li>
+          <li><strong>SOAP</strong> – XML-based, more structured</li>
+          <li><strong>GraphQL</strong> – Flexible queries for modern apps</li>
+        </ul>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Test Your API Basics</h3>
+
+        <div class="quiz-question">
+          <p>1. What does API stand for?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Application Programming Interface</button>
+            <button onclick="checkAnswer(this, false)">Advanced Program Index</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which is NOT a type of API?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">REST</button>
+            <button onclick="checkAnswer(this, true)">JSON API Pro</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. APIs are used for...</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Making coffee</button>
+            <button onclick="checkAnswer(this, true)">Software communication</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. REST APIs typically use...</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">HTTP methods like GET, POST</button>
+            <button onclick="checkAnswer(this, false)">Email protocols</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Who is the 'client' in an API call?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">The app or user making the request</button>
+            <button onclick="checkAnswer(this, false)">The database</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="nav-btns">
+        <a href="{% url 'restapi' %}">← Back</a>
+        <a href="{% url 'restapi-principles' %}">Next: RESTful Principles →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Router – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      background-image: url("{% static 'main/images/gradient.png' %}"), linear-gradient(90deg, #000000 0%, #0a001a 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      color: #a020f0;
+      text-align: center;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+
+    .btn-signing {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      background: transparent;
+      text-decoration: none;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: white;
+    }
+
+    .tutorial-container {
+      max-width: 850px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+      display: inline-block;
+    }
+
+    pre {
+      display: block;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-section h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background-color: #111;
+      color: #ddd;
+      border: 2px solid #444;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.3rem 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1e1e1e;
+    }
+
+    .quiz-options button.correct {
+      border-color: #00c853;
+      background-color: #003d1f;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      border-color: #d50000;
+      background-color: #3d0000;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .next-btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .next-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'react_hooks' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">React Router</h2>
+
+      <div class="tutorial-section">
+        <p>React Router is a powerful library that enables routing in single-page React applications. It allows users to navigate between components without refreshing the page.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Installation</h3>
+        <p>Install React Router using npm:</p>
+        <pre><code>npm install react-router-dom</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Basic Setup</h3>
+        <p>Wrap your app in <code>&lt;BrowserRouter&gt;</code> and define routes using <code>&lt;Route&gt;</code>:</p>
+        <pre><code>
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+        </code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Linking Between Pages</h3>
+        <p>Use <code>&lt;Link&gt;</code> to navigate:</p>
+        <pre><code>
+import { Link } from 'react-router-dom';
+
+&lt;Link to="/about"&gt;Go to About&lt;/Link&gt;
+        </code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Dynamic Routing</h3>
+        <p>You can use route parameters for dynamic URLs:</p>
+        <pre><code>
+&lt;Route path="/user/:id" element={&lt;UserProfile /&gt;} /&gt;
+        </code></pre>
+        <p>Access the <code>id</code> using <code>useParams()</code> hook.</p>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: React Router</h3>
+
+        <div class="quiz-question">
+          <p>1. What is the purpose of React Router?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Style components</button>
+            <button onclick="checkAnswer(this, true)">Navigate between pages without reload</button>
+            <button onclick="checkAnswer(this, false)">Fetch API data</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which component is used to wrap routes?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">BrowserRouter</button>
+            <button onclick="checkAnswer(this, false)">RouteGroup</button>
+            <button onclick="checkAnswer(this, false)">NavRouter</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Which hook is used to get route parameters?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">useRoute</button>
+            <button onclick="checkAnswer(this, true)">useParams</button>
+            <button onclick="checkAnswer(this, false)">useLocation</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. What does &lt;Link to="/about"&gt; do?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Navigates to /about without reload</button>
+            <button onclick="checkAnswer(this, false)">Performs API call</button>
+            <button onclick="checkAnswer(this, false)">Reloads the page</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Which version of React Router introduced &lt;Routes&gt;?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">v4</button>
+            <button onclick="checkAnswer(this, false)">v5</button>
+            <button onclick="checkAnswer(this, true)">v6</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'react_hooks' %}" class="next-btn">← Back to Hooks</a>
+        <a href="{% url 'uiux' %}" class="next-btn">Next Section: UI/UX →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll("button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

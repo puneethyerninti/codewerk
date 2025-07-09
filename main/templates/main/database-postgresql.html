@@ -1,0 +1,300 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostgreSQL – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0a0a0e;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #a020f0;
+    }
+
+    .btn-signing {
+      background: transparent;
+      border: 2px solid #a020f0;
+      padding: 0.4rem 1.2rem;
+      border-radius: 25px;
+      color: #a020f0;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-signing:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p, ul {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      color: #00bfff;
+      display: block;
+      margin-top: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-section {
+      margin-top: 3rem;
+    }
+
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header data-aos="fade-down">
+      <h1 class="logo">CODEWERK</h1>
+      <a href="{% url 'database' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Using PostgreSQL with Django</h2>
+
+      <div class="tutorial-section">
+        <h3>What is PostgreSQL?</h3>
+        <p>PostgreSQL is a powerful, open-source, object-relational database system known for performance, reliability, and feature-rich capabilities.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Installation & Setup</h3>
+        <ul>
+          <li>Download from <a href="https://www.postgresql.org/download/" target="_blank">postgresql.org</a></li>
+          <li>Install <code>psycopg2</code> using: <code>pip install psycopg2-binary</code></li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Connect PostgreSQL to Django</h3>
+        <p>Update your <code>settings.py</code>:</p>
+        <pre>
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'codewerk_db',
+    'USER': 'postgres',
+    'PASSWORD': 'yourpassword',
+    'HOST': 'localhost',
+    'PORT': '5432',
+  }
+}
+        </pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Models & Migrations</h3>
+        <p>Define your models in <code>models.py</code> and apply migrations:</p>
+        <pre>
+python manage.py makemigrations
+python manage.py migrate
+        </pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Basic Query Examples</h3>
+        <pre>
+# Create
+Book.objects.create(title="Codewerk", author="Puneeth")
+
+# Retrieve
+Book.objects.filter(author="Puneeth")
+
+# Update
+book = Book.objects.get(id=1)
+book.title = "Codewerk 2.0"
+book.save()
+
+# Delete
+book.delete()
+        </pre>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: Test Your PostgreSQL Knowledge</h3>
+
+        <div class="quiz-question">
+          <p>1. What is PostgreSQL?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">An open-source relational database</button>
+            <button onclick="checkAnswer(this, false)">A frontend framework</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which Python package connects Django to PostgreSQL?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">mysqlclient</button>
+            <button onclick="checkAnswer(this, true)">psycopg2</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. The default port for PostgreSQL is:</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">3306</button>
+            <button onclick="checkAnswer(this, true)">5432</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. How do you apply database changes in Django?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">makemigrations & migrate</button>
+            <button onclick="checkAnswer(this, false)">syncdb only</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Which file contains database config in Django?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">settings.py</button>
+            <button onclick="checkAnswer(this, false)">models.py</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'database-design' %}">← Back</a>
+        <a href="{% url 'database-orm' %}">Next: Django ORM →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

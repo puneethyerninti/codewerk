@@ -1,0 +1,301 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Project Structure – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0b0f;
+      margin: 0;
+      padding: 0;
+      color: #ccc;
+    }
+
+    .tutorial-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+    }
+
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p,
+    .tutorial-section ul {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+    }
+
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #c0f0ff;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-section {
+      margin-top: 4rem;
+    }
+
+    .quiz-section .learn-heading {
+      font-size: 2rem;
+      color: #e0d4f7;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-card {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid #222;
+      border-left: 4px solid #a020f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 15px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-card h3 {
+      color: #a020f0;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-options button {
+      background-color: transparent;
+      color: #a020f0;
+      border: 2px solid #a020f0;
+      padding: 0.6rem 1.4rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-options button:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .quiz-options button.correct {
+      background-color: #a020f0 !important;
+      color: white !important;
+      border-color: #a020f0 !important;
+      box-shadow: 0 0 12px #a020f0;
+    }
+
+    .quiz-options button.wrong {
+      background-color: #3d0000 !important;
+      color: #ff7de9 !important;
+      border-color: #a020f0;
+    }
+
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="header-right" data-aos="fade-down" data-aos-delay="100">
+        <div class="connect-bar">
+          <span>Connect:</span>
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a> ·
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a> ·
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a> ·
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+        <a href="{% url 'home' %}" class="btn-signing">Home</a>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Django Project Structure</h2>
+
+      <div class="tutorial-section">
+        <h3>1. Project Structure Overview</h3>
+        <p>When you run <code>django-admin startproject mysite</code>, Django creates a default structure:</p>
+        <pre><code>mysite/
+├── manage.py
+├── mysite/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+</code></pre>
+        <div class="callout-box">💡 The outer <code>mysite</code> is your project folder. The inner <code>mysite</code> is the actual Django configuration package.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>2. Key Files & Their Roles</h3>
+        <ul>
+          <li><strong>manage.py</strong>: Project command-line tool — runserver, migrate, etc.</li>
+          <li><strong>settings.py</strong>: All configuration — installed apps, DB setup, static files.</li>
+          <li><strong>urls.py</strong>: Maps URLs to views.</li>
+          <li><strong>wsgi.py / asgi.py</strong>: Used for production deployment.</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>3. Apps Within Projects</h3>
+        <p>To create a modular app:</p>
+        <pre><code>python manage.py startapp blog</code></pre>
+        <p>This generates:</p>
+        <pre><code>blog/
+├── admin.py
+├── apps.py
+├── models.py
+├── views.py
+├── tests.py
+└── migrations/</code></pre>
+        <ul>
+          <li><strong>models.py</strong>: Define DB tables using ORM.</li>
+          <li><strong>views.py</strong>: Logic for displaying data.</li>
+          <li><strong>admin.py</strong>: Configure admin dashboard.</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>4. Best Practices</h3>
+        <ul>
+          <li>Keep each feature in a separate app.</li>
+          <li>Use environment variables for sensitive data.</li>
+          <li>Follow consistent folder structure and naming.</li>
+        </ul>
+      </div>
+
+      <section class="quiz-section" id="quiz" data-aos="fade-up">
+        <h2 class="learn-heading">Quiz: Django Structure</h2>
+
+        <div class="quiz-card">
+          <h3>1. What file runs Django commands?</h3>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">manage.py</button>
+            <button onclick="checkAnswer(this, false)">main.py</button>
+            <button onclick="checkAnswer(this, false)">admin.py</button>
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <h3>2. Where do you define database settings?</h3>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">urls.py</button>
+            <button onclick="checkAnswer(this, true)">settings.py</button>
+            <button onclick="checkAnswer(this, false)">models.py</button>
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <h3>3. Which file handles URL routing?</h3>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">urls.py</button>
+            <button onclick="checkAnswer(this, false)">apps.py</button>
+            <button onclick="checkAnswer(this, false)">admin.py</button>
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <h3>4. Which file registers models in admin?</h3>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">admin.py</button>
+            <button onclick="checkAnswer(this, false)">models.py</button>
+            <button onclick="checkAnswer(this, false)">views.py</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="nav-btns">
+        <a href="{% url 'django-intro' %}">← Back to Intro</a>
+        <a href="{% url 'django-models' %}">Next: Models & Admin →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'frontend' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">JAVASCRIPT</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">JavaScript Tutorial</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn the language of interactivity — JavaScript. Build dynamic websites, handle user events, and more.
+        </p>
+      </div>
+    </main>
+
+    <section class="learn-section" id="js-basics" data-aos="fade-up" data-aos-delay="600">
+      <h2 class="learn-heading">What You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'js-intro' %}" class="learn-card">
+          <h3>1. Introduction to JavaScript</h3>
+          <p>Understand the role of JavaScript and how it powers dynamic behavior on the web.</p>
+        </a>
+        <a href="{% url 'js-variables' %}" class="learn-card">
+          <h3>2. Variables & Data Types</h3>
+          <p>Learn how to declare variables and use different types of data like strings, numbers, and booleans.</p>
+        </a>
+        <a href="{% url 'js-functions' %}" class="learn-card">
+          <h3>3. Functions</h3>
+          <p>Understand how to define, call, and pass arguments into reusable blocks of code.</p>
+        </a>
+        <a href="{% url 'js-events' %}" class="learn-card">
+          <h3>4. Events & DOM</h3>
+          <p>Learn how to respond to user actions and manipulate HTML elements with JavaScript.</p>
+        </a>
+        <a href="{% url 'js-conditions' %}" class="learn-card single-center">
+          <h3>5. Loops & Conditions</h3>
+          <p>Write decision-making code and repeat actions using loops like for, while, and conditionals.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relational Design – CODEWERK</title>
+
+  <!-- Static CSS -->
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    /* Your existing CSS styles remain unchanged */
+    body {
+      background-color: #0a0a0e;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'database' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Relational Database Design</h2>
+
+      <div class="tutorial-section">
+        <h3>What is Relational Design?</h3>
+        <p>Relational design structures data into tables (relations), where each row is a record and each column is an attribute (field).</p>
+        <div class="callout-box">
+          💡 <strong>Tip:</strong> Every table should have a unique primary key!
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Primary & Foreign Keys</h3>
+        <p><strong>Primary Key:</strong> Uniquely identifies each row in a table.<br />
+        <strong>Foreign Key:</strong> A field that links one table to another.</p>
+        <pre>
+Users
+-------------------
+id (PK) | username
+
+Posts
+-------------------
+id (PK) | user_id (FK) → Users.id
+        </pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Types of Relationships</h3>
+        <ul>
+          <li>One-to-One (1:1)</li>
+          <li>One-to-Many (1:M)</li>
+          <li>Many-to-Many (M:N)</li>
+        </ul>
+        <p>Use junction tables to handle many-to-many relationships.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Normalization</h3>
+        <p>Normalization removes redundancy and improves integrity:</p>
+        <ul>
+          <li><strong>1NF:</strong> Atomic columns</li>
+          <li><strong>2NF:</strong> Remove partial dependencies</li>
+          <li><strong>3NF:</strong> Remove transitive dependencies</li>
+        </ul>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Test Your Database Design Skills</h3>
+
+        <div class="quiz-question">
+          <p>1. What is a Primary Key?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">A unique identifier for a table row</button>
+            <button onclick="checkAnswer(this, false)">A column with random values</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. A Foreign Key connects to:</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Primary key of another table</button>
+            <button onclick="checkAnswer(this, false)">A non-existing table</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. What does 1NF ensure?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Atomic columns</button>
+            <button onclick="checkAnswer(this, false)">Multiple values in one field</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which relation type needs a junction table?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">One-to-One</button>
+            <button onclick="checkAnswer(this, true)">Many-to-Many</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. What does normalization reduce?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Redundancy</button>
+            <button onclick="checkAnswer(this, false)">Security</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'database-sql' %}">← Back</a>
+        <a href="{% url 'database-postgresql' %}">Next: PostgreSQL →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

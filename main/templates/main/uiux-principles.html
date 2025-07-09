@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Design Principles – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p,
+    .tutorial-section ul {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .tutorial-section ul {
+      padding-left: 1.5rem;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .callout-box strong {
+      color: #a020f0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 0.8rem auto;
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-delay="100">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Design Principles in UI/UX</h2>
+
+      <div class="tutorial-section">
+        <h3>1. Consistency</h3>
+        <p>
+          Consistency ensures users can predict how your interface will behave. Keep similar actions and visual elements consistent across screens to reduce confusion.
+        </p>
+        <p>Examples: consistent button styles, icon usage, and font choices.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>2. Visual Hierarchy</h3>
+        <p>
+          Visual hierarchy guides the user’s eyes to what's most important. Use size, color, spacing, and placement to prioritize elements.
+        </p>
+        <div class="callout-box">
+          <strong>🎯 Tip:</strong> Bigger and bolder elements attract attention first. Use this to highlight actions like “Sign Up” or “Buy Now”.
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>3. Feedback</h3>
+        <p>
+          Users should get immediate feedback for their actions — like button presses, loading indicators, or error messages. This improves clarity and confidence.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>4. Accessibility</h3>
+        <p>
+          Accessible design ensures your product works for everyone — including people with disabilities. Use readable fonts, sufficient color contrast, alt text for images, and keyboard navigation.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>5. Simplicity</h3>
+        <p>
+          Don’t overload users with too many choices or complex layouts. A simple, clean design keeps users focused and increases usability.
+        </p>
+      </div>
+
+      <div class="callout-box">
+        <strong>💡 Reminder:</strong> Great design is invisible — it helps the user without drawing attention to itself.
+      </div>
+
+      <div style="text-align: center;">
+        <a href="{% url 'uiux-intro' %}" class="back-btn">← Back to What is UI/UX?</a>
+        <br />
+        <a href="{% url 'uiux-wireframes' %}" class="back-btn" style="margin-top: 1rem;">Next: Wireframes & Prototypes →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

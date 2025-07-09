@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remote Repositories – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0a0a0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      color: #00bfff;
+      display: block;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient" class="image-gradient">
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'git' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Remote Repositories</h2>
+
+      <div class="tutorial-section">
+        <h3>What is a Remote Repository?</h3>
+        <p>A remote repository is a version of your project hosted on the internet (like GitHub) that you and your teammates can access and collaborate on.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Adding a Remote</h3>
+        <p>To connect your local repo to GitHub:</p>
+        <pre><code>git remote add origin https://github.com/yourname/yourrepo.git</code></pre>
+        <div class="callout-box">💡 "origin" is the default name for your main remote repository.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Pushing to Remote</h3>
+        <p>Use <code>git push</code> to send your commits to GitHub:</p>
+        <pre><code>git push -u origin main</code></pre>
+        <p>The <code>-u</code> flag sets "origin/main" as the default for future pushes.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Pulling from Remote</h3>
+        <p>To bring the latest changes from GitHub into your local repo:</p>
+        <pre><code>git pull origin main</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Check Remote URLs</h3>
+        <pre><code>git remote -v</code></pre>
+        <p>Displays all remotes linked to your repository.</p>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Remote Repos</h3>
+
+        <div class="quiz-question">
+          <p>1. What is a remote repository?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">A Git repo hosted on a server like GitHub</button>
+            <button onclick="checkAnswer(this, false)">A repo inside your phone</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What does <code>git push</code> do?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Uploads commits to the remote repo</button>
+            <button onclick="checkAnswer(this, false)">Deletes remote files</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. What does the <code>-u</code> flag mean in <code>git push -u</code>?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Sets upstream for future pushes</button>
+            <button onclick="checkAnswer(this, false)">Updates the user profile</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which command fetches changes from GitHub?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">git commit</button>
+            <button onclick="checkAnswer(this, true)">git pull</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. How do you check which remotes are connected?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">git remote -v</button>
+            <button onclick="checkAnswer(this, false)">git status</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'git-branching' %}">← Back</a>
+        <a href="{% url 'git-merge-rebase' %}">Next: Merge & Rebase →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

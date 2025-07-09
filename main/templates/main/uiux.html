@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI/UX Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'frontend' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">UI/UX</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">UI/UX Design Tutorial</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn how to design user-friendly and beautiful interfaces with core UI/UX principles.
+        </p>
+      </div>
+    </main>
+
+    <section class="learn-section" id="uiux-basics" data-aos="fade-up" data-aos-delay="600">
+      <h2 class="learn-heading">Explore UI/UX Topics</h2>
+      <div class="cards-grid">
+        <a href="{% url 'uiux-intro' %}" class="learn-card">
+          <h3>1. What is UI/UX?</h3>
+          <p>Understand the key concepts and differences between UI and UX.</p>
+        </a>
+        <a href="{% url 'uiux-principles' %}" class="learn-card">
+          <h3>2. Design Principles</h3>
+          <p>Learn core principles like contrast, alignment, proximity, and more.</p>
+        </a>
+        <a href="{% url 'uiux-wireframes' %}" class="learn-card">
+          <h3>3. Wireframes & Prototypes</h3>
+          <p>Understand how to plan and prototype a user-friendly interface.</p>
+        </a>
+        <a href="{% url 'uiux-research' %}" class="learn-card">
+          <h3>4. User Research</h3>
+          <p>Learn how to understand user needs through research techniques.</p>
+        </a>
+        <a href="{% url 'uiux-accessibility' %}" class="learn-card single-center">
+          <h3>5. Accessibility</h3>
+          <p>Make your websites inclusive for all users, including people with disabilities.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

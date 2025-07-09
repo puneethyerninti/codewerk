@@ -1,0 +1,216 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to JavaScript – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+
+    .quiz-box {
+      background: #111;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(160, 32, 240, 0.15);
+      margin-top: 2rem;
+    }
+
+    .quiz-box h3 {
+      color: #a020f0;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-question {
+      margin-bottom: 1.2rem;
+    }
+
+    .quiz-option {
+      margin: 5px 0;
+      background-color: #222;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #eee;
+      border: 1px solid #444;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-option:hover {
+      background-color: #2a2a2a;
+    }
+
+    .quiz-option.correct {
+      background-color: #0f0;
+      color: #000;
+    }
+
+    .quiz-option.wrong {
+      background-color: #f00;
+      color: #fff;
+    }
+
+    .back-btn, .next-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover, .next-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Introduction to JavaScript</h2>
+
+      <div class="tutorial-section">
+        <p>
+          JavaScript is the programming language of the web. It allows you to add interactivity, animations, and logic to your web pages.
+        </p>
+        <p>
+          While HTML structures your content and CSS styles it, JavaScript makes it come alive — responding to user actions and updating the page in real time.
+        </p>
+        <div class="callout-box">
+          <strong>⚡ Did You Know?</strong> JavaScript runs directly in the browser without needing any additional tools!
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Basic Example</h3>
+        <p>Here’s how you show an alert popup:</p>
+        <div class="callout-box">
+<pre><code>script&gt;
+  alert("Welcome to JavaScript!");
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Why Learn JavaScript?</h3>
+        <ul>
+          <li>It powers interactive web features (forms, sliders, games, etc.)</li>
+          <li>Used in frontend (React, Vue) and backend (Node.js)</li>
+          <li>Supported by every browser</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Mini Quiz: Test Your JS Basics</h3>
+
+        <div class="quiz-question">
+          <p><strong>1. What is JavaScript primarily used for?</strong></p>
+          <div class="quiz-option" onclick="checkAnswer(this, true)">Adding interactivity to web pages</div>
+          <div class="quiz-option" onclick="checkAnswer(this, false)">Styling HTML elements</div>
+          <div class="quiz-option" onclick="checkAnswer(this, false)">Structuring page content</div>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2. Where does JavaScript run?</strong></p>
+          <div class="quiz-option" onclick="checkAnswer(this, true)">In the web browser</div>
+          <div class="quiz-option" onclick="checkAnswer(this, false)">Only on servers</div>
+          <div class="quiz-option" onclick="checkAnswer(this, false)">Inside CSS files</div>
+        </div>
+      </div>
+
+      <div class="nav-buttons" data-aos="fade-up" data-aos-delay="500">
+        <a href="{% url 'frontend' %}" class="back-btn">← Back to Frontend Overview</a>
+        <a href="{% url 'js-variables' %}" class="next-btn">Next: Variables & Data Types →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    function checkAnswer(el, isCorrect) {
+      const siblings = el.parentElement.querySelectorAll('.quiz-option');
+      siblings.forEach(opt => opt.classList.remove('correct', 'wrong'));
+
+      if (isCorrect) {
+        el.classList.add('correct');
+      } else {
+        el.classList.add('wrong');
+      }
+    }
+  </script>
+</body>
+</html>

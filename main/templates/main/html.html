@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="icon" href="{% static 'main/favicon.png' %}" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  
+
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down" data-aos-duration="1000">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'frontend' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">HTML</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">HTML Tutorial</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn the foundation of every webpage — HTML5 — and how to structure semantic, accessible web content.
+        </p>
+      </div>
+    </main>
+
+    <section class="learn-section" id="html-basics" data-aos="fade-up" data-aos-delay="600">
+      <h2 class="learn-heading">Getting Started with HTML</h2>
+      <div class="cards-grid">
+        <a href="{% url 'html-intro' %}" class="learn-card">
+          <h3>1. What is HTML?</h3>
+          <p>HTML (HyperText Markup Language) is the standard markup language used to create web pages.</p>
+        </a>
+        <a href="{% url 'html-structure' %}" class="learn-card">
+          <h3>2. Basic Structure</h3>
+          <p>Every HTML document starts with <code>&lt;!DOCTYPE html&gt;</code>, followed by <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code>.</p>
+        </a>
+        <a href="{% url 'html-headings' %}" class="learn-card">
+          <h3>3. Headings & Paragraphs</h3>
+          <p>Use <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for headings and <code>&lt;p&gt;</code> for paragraphs.</p>
+        </a>
+        <a href="{% url 'html-links-images' %}" class="learn-card">
+          <h3>4. Links & Images</h3>
+          <p><code>&lt;a href=""&gt;</code> creates links. <code>&lt;img src="" alt=""&gt;</code> displays images.</p>
+        </a>
+        <a href="{% url 'html-lists' %}" class="learn-card single-center">
+          <h3>5. Lists</h3>
+          <p><code>&lt;ul&gt;</code> for unordered, <code>&lt;ol&gt;</code> for ordered, and <code>&lt;li&gt;</code> for list items.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

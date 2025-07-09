@@ -1,0 +1,200 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Django – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .tutorial-container {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+    .tutorial-heading {
+      font-size: 2.2rem;
+      color: #e0d4f7;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    code {
+      background-color: #1a1a1a;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      color: #00bfff;
+      font-family: Consolas, monospace;
+      font-size: 1rem;
+    }
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #c0f0ff;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ddd;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .quiz-options button {
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+    .quiz-options button:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+    .nav-buttons a {
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .nav-buttons a:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="header-right" data-aos="fade-down" data-aos-delay="100">
+        <div class="connect-bar">
+          <span>Connect:</span>
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a> ·
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a> ·
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a> ·
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+        <a href="{% url 'home' %}" class="btn-signing">Home</a>
+      </div>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Introduction to Django</h2>
+
+      <div class="tutorial-section">
+        <p>Django is a high-level Python web framework that allows developers to build robust, scalable, and secure web applications rapidly. It follows the “batteries-included” philosophy and handles a lot of standard web development tasks out of the box.</p>
+        <div class="callout-box">
+          <strong>💡 Did You Know?</strong> Django was originally developed to manage news sites for a newspaper publisher.
+        </div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Why Use Django?</h3>
+        <ul>
+          <li>🚀 Fast Development</li>
+          <li>🔐 Built-in security features (CSRF, XSS protection, etc.)</li>
+          <li>🧩 Modular and scalable</li>
+          <li>🎯 Excellent admin interface</li>
+          <li>📦 Comes with ORM, forms, authentication, and more</li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Installing Django</h3>
+        <pre><code>pip install django</code></pre>
+        <p>This will install the latest version of Django globally. You can also use a virtual environment for project isolation.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Creating a New Project</h3>
+        <pre><code>django-admin startproject myproject</code></pre>
+        <p>This will generate the base structure for your Django app. Navigate into the folder and run the server:</p>
+        <pre><code>cd myproject
+python manage.py runserver</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>🧠 Quick Quiz: What is Django primarily used for?</h3>
+        <div class="quiz-options">
+          <button onclick="checkAnswer(this, true)">Web Development</button>
+          <button onclick="checkAnswer(this, false)">Game Development</button>
+          <button onclick="checkAnswer(this, false)">Data Analysis</button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'django' %}" style="margin-right: 1rem;">← Back to Django Overview</a>
+        <a href="{% url 'django-structure' %}">Next: Django Structure →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    function checkAnswer(btn, isCorrect) {
+      const allButtons = btn.parentElement.querySelectorAll('button');
+      allButtons.forEach(b => {
+        b.disabled = true;
+        b.style.opacity = 0.6;
+      });
+
+      if (isCorrect) {
+        btn.style.backgroundColor = "#00c853";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#00c853";
+        btn.innerText += " ✅";
+      } else {
+        btn.style.backgroundColor = "#d32f2f";
+        btn.style.color = "#fff";
+        btn.style.borderColor = "#d32f2f";
+        btn.innerText += " ❌";
+      }
+    }
+  </script>
+</body>
+</html>

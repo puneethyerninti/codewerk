@@ -1,0 +1,247 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JSX & Components – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <style>
+    .tutorial-container {
+      max-width: 850px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+    }
+
+    .tutorial-heading {
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+
+    .tutorial-section h3 {
+      font-size: 1.6rem;
+      color: #a020f0;
+      margin-bottom: 0.7rem;
+    }
+
+    .tutorial-section p {
+      font-size: 1.08rem;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    pre code {
+      background: #111;
+      display: block;
+      padding: 1rem;
+      border-radius: 10px;
+      color: #00e5ff;
+      margin-top: 0.5rem;
+      white-space: pre-wrap;
+    }
+
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #a020f0;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #ccc;
+      margin: 1.5rem 0;
+    }
+
+    .quiz-section h3 {
+      font-size: 1.8rem;
+      text-align: center;
+      color: #e0d4f7;
+      margin: 3rem 0 1.5rem;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #a020f0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .quiz-options button {
+      width: 100%;
+      text-align: left;
+      background-color: #111;
+      color: #ddd;
+      border: 2px solid #444;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.3rem 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-options button:hover {
+      background-color: #1e1e1e;
+    }
+
+    .quiz-options button.correct {
+      border-color: #00c853;
+      background-color: #003d1f;
+      color: #00e676;
+    }
+
+    .quiz-options button.wrong {
+      border-color: #d50000;
+      background-color: #3d0000;
+      color: #ff1744;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+
+    .next-btn {
+      padding: 0.7rem 1.8rem;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      background: transparent;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      background: #a020f0;
+      color: white;
+      box-shadow: 0 0 12px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-delay="100">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+      <a href="{% url 'react' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">JSX & Components in React</h2>
+
+      <div class="tutorial-section">
+        <h3>What is JSX?</h3>
+        <p>JSX stands for <strong>JavaScript XML</strong>. It allows us to write HTML in React. JSX makes it easier to write and add HTML in React components.</p>
+        <div class="callout-box"><strong>💡 Note:</strong> JSX is not required in React, but it makes the code more readable and concise.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>JSX Syntax Example</h3>
+        <pre><code>const element = &lt;h1&gt;Hello, JSX!&lt;/h1&gt;;</code></pre>
+        <p>In JSX, we use angle brackets like HTML. This syntax is then compiled to <code>React.createElement()</code> calls.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Embedding Expressions</h3>
+        <p>You can embed any JavaScript expression in JSX by wrapping it in curly braces <code>{}</code>.</p>
+        <pre><code>const name = 'Puneeth';
+const element = &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>JSX vs HTML Differences</h3>
+        <ul>
+          <li>Use <code>className</code> instead of <code>class</code></li>
+          <li>Use <code>htmlFor</code> instead of <code>for</code></li>
+          <li>Self-close elements like <code>&lt;br /&gt;</code> and <code>&lt;img /&gt;</code></li>
+        </ul>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Always return one parent element from a component</li>
+          <li>Use meaningful names for components</li>
+          <li>Keep logic out of JSX as much as possible</li>
+        </ul>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: JSX & Components</h3>
+
+        <div class="quiz-question">
+          <p><strong>1. What does JSX stand for?</strong></p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">JavaScript XML</button>
+            <button onclick="checkAnswer(this, false)">JavaScript Extra</button>
+            <button onclick="checkAnswer(this, false)">Java Syntax Extension</button>
+            <button onclick="checkAnswer(this, false)">JavaScript Extension</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>2. What is the correct way to add a class in JSX?</strong></p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">class="box"</button>
+            <button onclick="checkAnswer(this, true)">className="box"</button>
+            <button onclick="checkAnswer(this, false)">cls="box"</button>
+            <button onclick="checkAnswer(this, false)">classname="box"</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p><strong>3. JSX gets compiled to which method?</strong></p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">React.createElement()</button>
+            <button onclick="checkAnswer(this, false)">document.createElement()</button>
+            <button onclick="checkAnswer(this, false)">HTML.create()</button>
+            <button onclick="checkAnswer(this, false)">React.element()</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="{% url 'react' %}" class="next-btn">← Back to React Overview</a>
+        <a href="{% url 'react_props' %}" class="next-btn">Next: Props & State →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

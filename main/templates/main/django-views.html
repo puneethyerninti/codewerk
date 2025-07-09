@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Views & Templates – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p, ul {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      color: #00bfff;
+    }
+    pre {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #c0f0ff;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+    header.header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+    }
+    .logo {
+      font-size: 2rem;
+      color: #a020f0;
+      font-weight: 700;
+    }
+    .background-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+      overflow: hidden;
+    }
+
+    .image-gradient {
+      width: 100%;
+      height: auto;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+
+    .layer-blur {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(160, 32, 240, 0.05), transparent 70%);
+      z-index: -9;
+    }  
+    /* Background Fix */
+    .background-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -10;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -11;
+    }
+
+    .background-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(160, 32, 240, 0.1), transparent 70%);
+      z-index: -10;
+    }
+
+
+  </style>
+</head>
+<body>
+
+   <div class="background-layer">
+    <img src="{% static 'main/images/gradient.png' %}" alt="Background" class="background-image" />
+    <div class="background-overlay"></div>
+  </div>
+
+
+  <div class="container">
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'django-models' %}" class="btn-signing">← Back</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Views & Templates in Django</h2>
+
+      <div class="tutorial-section">
+        <h3>What are Views?</h3>
+        <p>Views in Django are Python functions or classes that handle HTTP requests and return HTTP responses. They define how data is presented to the user.</p>
+        <div class="callout-box">💡 A view connects your URLs to the logic that decides what to show.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Function-Based View Example</h3>
+        <pre><code>from django.http import HttpResponse
+
+def homepage(request):
+    return HttpResponse("Hello from CODEWERK!")</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Connecting Views to URLs</h3>
+        <pre><code># urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.homepage, name='home'),
+]</code></pre>
+        <p>This tells Django to use the <code>homepage</code> view when someone visits the root URL.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Using HTML Templates</h3>
+        <p>Instead of returning raw text, you can render HTML templates:</p>
+        <pre><code>from django.shortcuts import render
+
+def homepage(request):
+    return render(request, 'home.html')</code></pre>
+        <div class="callout-box">✨ Make sure <code>home.html</code> exists in your <code>templates</code> directory and your app is added to <code>INSTALLED_APPS</code>.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Templates Folder Structure</h3>
+        <pre><code>myapp/
+├── templates/
+│   └── home.html
+├── views.py
+├── urls.py</code></pre>
+        <p>Use app-named folders under <code>templates/</code> for better organization in large projects.</p>
+      </div>
+
+      <!-- ✅ Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Views & Templates</h3>
+
+        <div class="quiz-question">
+          <p>1. What is the main job of a view?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Define models</button>
+            <button onclick="checkAnswer(this, true)">Handle requests & return responses</button>
+            <button onclick="checkAnswer(this, false)">Render admin panel</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What is returned by a function-based view?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">HttpResponse</button>
+            <button onclick="checkAnswer(this, false)">JsonFile</button>
+            <button onclick="checkAnswer(this, false)">Database record</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Where do you define your URLs?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">urls.py</button>
+            <button onclick="checkAnswer(this, false)">models.py</button>
+            <button onclick="checkAnswer(this, false)">settings.py</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which method renders an HTML page?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">render()</button>
+            <button onclick="checkAnswer(this, false)">open()</button>
+            <button onclick="checkAnswer(this, false)">load()</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Where should templates be placed?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Inside templates/ folder</button>
+            <button onclick="checkAnswer(this, false)">Inside static/ folder</button>
+            <button onclick="checkAnswer(this, false)">Inside media/ folder</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'django-models' %}">← Models & Admin</a>
+        <a href="{% url 'django-forms' %}">Next: Forms & Auth →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

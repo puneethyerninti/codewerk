@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postman Testing – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    code {
+      background-color: #1a1a1a;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: #00bfff;
+      display: inline-block;
+    }
+    pre {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #00bfff;
+      margin: 1rem 0;
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'restapi-methods' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Postman Testing</h2>
+
+      <div class="tutorial-section">
+        <h3>What is Postman?</h3>
+        <p>
+          Postman is a powerful API testing tool that allows developers to send requests and inspect responses from RESTful APIs. It's commonly used to debug, document, and collaborate on APIs.
+        </p>
+        <div class="callout-box">💡 You can simulate any HTTP method with headers, body, and parameters using Postman.</div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Sending a GET Request</h3>
+        <p>
+          Enter your API URL in the address bar, select <code>GET</code>, and hit "Send". You’ll see the server’s response in the body below.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Sending a POST Request</h3>
+        <p>
+          Use <code>POST</code> to send data. In the <strong>Body</strong> tab, select <code>raw</code> → <code>JSON</code> and provide a payload like:
+        </p>
+        <pre>{
+  "username": "codewerk",
+  "email": "hello@codewerk.dev"
+}</pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Using Headers</h3>
+        <p>
+          Add headers like <code>Content-Type: application/json</code> or <code>Authorization: Bearer TOKEN</code> in the Headers tab.
+        </p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Testing PUT, PATCH, DELETE</h3>
+        <p>
+          Just select the appropriate method from the dropdown and pass body/headers similarly to test updates and deletions.
+        </p>
+      </div>
+
+      <div class="quiz-section">
+        <h3>Quiz: Postman Basics</h3>
+
+        <div class="quiz-question">
+          <p>1. What is Postman primarily used for?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Writing Python code</button>
+            <button onclick="checkAnswer(this, true)">Testing REST APIs</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. Which HTTP method is used to fetch data in Postman?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">POST</button>
+            <button onclick="checkAnswer(this, true)">GET</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Where do you add <code>Content-Type: application/json</code>?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Headers tab</button>
+            <button onclick="checkAnswer(this, false)">Params tab</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which tab lets you pass a JSON body?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">Auth</button>
+            <button onclick="checkAnswer(this, true)">Body → raw → JSON</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. How do you test DELETE method?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Select DELETE & hit Send</button>
+            <button onclick="checkAnswer(this, false)">Use GET with extra parameters</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'restapi-methods' %}">← Back</a>
+        <a href="{% url 'restapi-drf' %}">Next: DRF / FastAPI →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>

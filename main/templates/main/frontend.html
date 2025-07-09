@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+
+      <!-- ✅ Connect Dropdown -->
+      <div class="connect-dropdown" data-aos="fade-down" data-aos-duration="1200">
+        <button class="connect-btn">Connect</button>
+        <div class="connect-menu">
+          <a href="https://github.com/puneethyerninti" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/puneeth-yerninti-58b158321" target="_blank">LinkedIn</a>
+          <a href="https://leetcode.com/u/puneeth_2004_/" target="_blank">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/puneethyerninti" target="_blank">HackerRank</a>
+        </div>
+      </div>
+
+      <a href="{% url 'home' %}" class="back-glow-btn">← Back</a>
+    </header>
+
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">FRONTEND</div>
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="200">Frontend Tutorials</h1>
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn HTML, CSS, JavaScript, React, UI/UX, and frontend tools step-by-step with CODEWERK.
+        </p>
+        <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+          <a href="#tutorials" class="btn-get-started">Explore Tutorials</a>
+          <a href="{% url 'signup' %}" class="btn-signing-main">Start Learning</a>
+        </div>
+      </div>
+    </main>
+
+    <section class="learn-section" id="tutorials" data-aos="fade-up" data-aos-delay="800">
+      <h2 class="learn-heading">What You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'html' %}" class="learn-card"><h3>HTML</h3><p>Learn the structure of the web.</p></a>
+        <a href="{% url 'css' %}" class="learn-card"><h3>CSS</h3><p>Style your site with responsive design.</p></a>
+        <a href="{% url 'javascript' %}" class="learn-card"><h3>JavaScript</h3><p>Make your frontend interactive.</p></a>
+        <a href="{% url 'react' %}" class="learn-card"><h3>React</h3><p>Build scalable frontend apps.</p></a>
+        <a href="{% url 'uiux' %}" class="learn-card single-center"><h3>UI / UX</h3><p>Design for great experiences.</p></a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Tutorial – CODEWERK</title>
+
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .back-btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background-color: transparent;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #a020f0;
+      color: white;
+      box-shadow: 0 0 10px #a020f0;
+    }
+
+    .right-align {
+      text-align: right;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gradient Background -->
+  <img class="image-gradient" src="{% static 'main/images/gradient.png' %}" alt="gradient" />
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header-flex">
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      
+
+        <a href="{% url 'home' %}" class="btn-signing">Home</a>
+      </div>
+    </header>
+
+
+    <!-- Main Section -->
+    <main class="hero-section">
+      <div class="content">
+        <div class="tag-box" data-aos="fade-up">
+          <div class="tag">PYTHON</div>
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="200">Python Tutorial</h1>
+
+        <p class="description" data-aos="fade-up" data-aos-delay="400">
+          Learn Python programming with fundamentals, control flow, functions, OOP, and more to master backend development.
+        </p>
+
+        <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+          <a href="#topics" class="btn-get-started">Explore Topics</a>
+          <a href="{% url 'signup' %}" class="btn-signing-main">Start Learning</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Topics Section -->
+    <section class="learn-section" id="topics" data-aos="fade-up" data-aos-delay="800">
+      <h2 class="learn-heading">What You'll Learn</h2>
+      <div class="cards-grid">
+        <a href="{% url 'python-intro' %}" class="learn-card">
+          <h3>Introduction</h3>
+          <p>Get started with Python and understand its syntax and basics.</p>
+        </a>
+        <a href="{% url 'python-variables' %}" class="learn-card">
+          <h3>Variables & Data Types</h3>
+          <p>Learn how to store and manipulate data using variables.</p>
+        </a>
+        <a href="{% url 'python-flow' %}" class="learn-card">
+          <h3>Control Flow</h3>
+          <p>Understand conditions, loops, and how programs make decisions.</p>
+        </a>
+        <a href="{% url 'python-functions' %}" class="learn-card">
+          <h3>Functions</h3>
+          <p>Write reusable blocks of code to perform specific tasks.</p>
+        </a>
+        <a href="{% url 'python-oop' %}" class="learn-card single-center">
+          <h3>Object-Oriented Programming</h3>
+          <p>Use classes and objects to model real-world behavior in code.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Basics – CODEWERK</title>
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #0a0a0f;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(160, 32, 240, 0.1);
+    }
+    .tutorial-heading {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #e0d4f7;
+      margin-bottom: 2rem;
+    }
+    .tutorial-section {
+      margin-bottom: 2rem;
+    }
+    .tutorial-section h3 {
+      color: #a020f0;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tutorial-section p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    code, pre {
+      background-color: #1a1a1a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      color: #00bfff;
+      display: block;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+    .callout-box {
+      background-color: #0c0c0c;
+      border-left: 4px solid #7f42a7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 0 10px rgba(160, 32, 240, 0.1);
+    }
+    .quiz-section {
+      margin-top: 3rem;
+    }
+    .quiz-question {
+      margin-bottom: 1.5rem;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #111;
+      color: #ccc;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .quiz-options button.correct {
+      background-color: #003d1f;
+      border-color: #00c853;
+      color: #00e676;
+    }
+    .quiz-options button.wrong {
+      background-color: #3d0000;
+      border-color: #d50000;
+      color: #ff1744;
+    }
+    .nav-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .nav-btns a {
+      padding: 0.6rem 1.6rem;
+      border-radius: 30px;
+      border: 2px solid #a020f0;
+      color: #a020f0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .nav-btns a:hover {
+      background-color: #a020f0;
+      color: #fff;
+      box-shadow: 0 0 10px #a020f0;
+    }
+  </style>
+</head>
+<body>
+  <img src="{% static 'main/images/gradient.png' %}" alt="gradient" class="image-gradient">
+  <div class="layer-blur"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="logo" data-aos="fade-down">CODEWERK</h1>
+      <a href="{% url 'git' %}" class="btn-signing">BACK</a>
+    </header>
+
+    <main class="tutorial-container" data-aos="fade-up">
+      <h2 class="tutorial-heading">Git Basics</h2>
+
+      <div class="tutorial-section">
+        <h3>What is Git?</h3>
+        <p>Git is a distributed version control system used to track changes in source code. It helps developers collaborate efficiently by keeping a record of every modification in a project.</p>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Initialize a Git Repository</h3>
+        <p>Use the following command inside your project directory to initialize a Git repository:</p>
+        <pre><code>git init</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Track Files and Stage Changes</h3>
+        <p>After editing files, use <code>git add</code> to stage changes for committing.</p>
+        <pre><code>git add .</code></pre>
+        <div class="callout-box">💡 You can also stage specific files like <code>git add index.html</code></div>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>Commit Changes</h3>
+        <p>Once files are staged, commit them with a meaningful message:</p>
+        <pre><code>git commit -m "Initial commit"</code></pre>
+      </div>
+
+      <div class="tutorial-section">
+        <h3>View Commit History</h3>
+        <p>Use this command to see the commit log:</p>
+        <pre><code>git log</code></pre>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section">
+        <h3>Quiz: Git Basics</h3>
+
+        <div class="quiz-question">
+          <p>1. What does <code>git init</code> do?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Initializes a Git repository</button>
+            <button onclick="checkAnswer(this, false)">Deletes the repo</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What does <code>git add .</code> do?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Stages all changes</button>
+            <button onclick="checkAnswer(this, false)">Commits all files</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. Which command creates a commit?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, false)">git init</button>
+            <button onclick="checkAnswer(this, true)">git commit -m "message"</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. What does <code>git log</code> show?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Commit history</button>
+            <button onclick="checkAnswer(this, false)">List of branches</button>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. Git is a _____ version control system?</p>
+          <div class="quiz-options">
+            <button onclick="checkAnswer(this, true)">Distributed</button>
+            <button onclick="checkAnswer(this, false)">Centralized</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <a href="{% url 'git' %}">← Back</a>
+        <a href="{% url 'git-branching' %}">Next: Branching →</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function checkAnswer(button, isCorrect) {
+      const parent = button.parentElement;
+      const options = parent.querySelectorAll("button");
+      options.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.remove("correct", "wrong");
+      });
+      button.classList.add(isCorrect ? "correct" : "wrong");
+    }
+  </script>
+</body>
+</html>
